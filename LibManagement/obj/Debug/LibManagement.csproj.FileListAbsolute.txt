@@ -1,0 +1,15 @@
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\LibManagement.exe.config
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\LibManagement.exe
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\LibManagement.pdb
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramework.dll
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramework.xml
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csprojAssemblyReference.cache
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Properties.Resources.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csproj.GenerateResource.cache
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csproj.CoreCompileInputs.cache
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csproj.CopyComplete
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.exe
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.pdb
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.DatabaseTablesCreatedWithAnontions.resources

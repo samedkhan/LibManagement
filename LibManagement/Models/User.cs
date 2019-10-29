@@ -22,6 +22,10 @@ namespace LibManagement.Models
         public string Username { get; set; }
 
         [Required]
+        [Column(TypeName = "bit")]
+        public bool AdminOrUser { get; set; }
+
+        [Required]
         [MaxLength(100)]
         public string Password { get; set; }
 

@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibManagement
+namespace LibManagement.Forms
 {
-    public partial class Form1 : Form
+    public partial class dashboard : Form
     {
-        public Form1()
+        public dashboard()
         {
             InitializeComponent();
+        }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

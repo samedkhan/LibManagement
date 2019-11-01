@@ -25,6 +25,8 @@ namespace LibManagement.DAL
 
         public DbSet<BookOrder> BookOrders { get; set; }
 
+        public DbSet<Janre> Janres { get; set; }
+
 
     }
 }

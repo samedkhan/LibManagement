@@ -21,19 +21,22 @@ namespace LibManagement.Models
         [MaxLength(100)]
         [Required]
         public string AutorName { get; set; }
-
-        [MaxLength(150)]
-        public string JanreName { get; set; }
+                
 
         public int TotalPiece { get; set; }
 
+        
         [Column(TypeName = "money")]
-        [Required]
+        
         public decimal SalePrice { get; set; }
 
         [Column(TypeName = "money")]
-        [Required]
+        
         public decimal RentPrice { get; set; }
+
+        public int JanreId { get; set; }
+
+        public Janre janre { get; set; }
 
         public List<BookOrder> bookorders { get; set; }
 

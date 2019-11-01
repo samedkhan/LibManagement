@@ -28,19 +28,23 @@ namespace LibManagement.Forms
                 MessageBox.Show("Boş xanaları doldurun!!!");
                 return;
             }
-            
+
             User user = new User
             {
                 Username = txtUsername.Text,
-                Password = txtPassword.Text
+                Password = txtPassword.Text,
+                
             };
+
             if (!_userService.Contain(user.Username, user.Password))
             {
                 MessageBox.Show("İstifadəçi adı və ya Şifrə yalnışdır!!!");
                 return;
             }
+
             dashboard dashboard = new dashboard();
             dashboard.Show();
+           
             this.Hide();
            
         }

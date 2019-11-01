@@ -55,5 +55,11 @@ namespace LibManagement.Services
         {
             return _context.Users.Any(u => u.Username.Contains(username) && u.Password.Contains(password));
         }
+
+        public User Find(string username, string password)
+        {
+            return _context.Users.Where(u => u.Username.Contains(username) && u.Password.Contains(password)).FirstOrDefault();
+        }
+
     }
 }

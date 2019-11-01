@@ -21,5 +21,16 @@ namespace LibManagement.Forms
         {
             Application.Exit();
         }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            //DialogResult result = MessageBox.Show("Əminsinizmi?", MessageBoxButtons.YesNo);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            bookForm bookForm = new bookForm();
+            bookForm.ShowDialog();
+        }
     }
 }

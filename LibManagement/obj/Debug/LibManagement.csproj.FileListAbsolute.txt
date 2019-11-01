@@ -16,3 +16,7 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.LoginForm.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedPropertyOfUSerClass.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.dashboard.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedUserProperties.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.bookForm.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.AddedJanreTablesChangedBookProperties.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookClassProperties.resources

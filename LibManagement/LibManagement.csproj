@@ -63,6 +63,12 @@
     <Compile Include="Forms\bookForm.Designer.cs">
       <DependentUpon>bookForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,9 +106,12 @@
     <Compile Include="Migrations\201911020257488_ChangedCustomerClassProperties.designer.cs">
       <DependentUpon>201911020257488_ChangedCustomerClassProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911020700004_RemovedBookOrdersChangedBookAndORderProperties.cs" />
+    <Compile Include="Migrations\201911020700004_RemovedBookOrdersChangedBookAndORderProperties.designer.cs">
+      <DependentUpon>201911020700004_RemovedBookOrdersChangedBookAndORderProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\BookOrder.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Janre.cs" />
     <Compile Include="Models\Order.cs" />
@@ -110,10 +119,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\JanreService.cs" />
     <Compile Include="Services\UserService.cs" />
     <EmbeddedResource Include="Forms\bookForm.resx">
       <DependentUpon>bookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
@@ -138,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911020257488_ChangedCustomerClassProperties.resx">
       <DependentUpon>201911020257488_ChangedCustomerClassProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911020700004_RemovedBookOrdersChangedBookAndORderProperties.resx">
+      <DependentUpon>201911020700004_RemovedBookOrdersChangedBookAndORderProperties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

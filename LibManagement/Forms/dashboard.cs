@@ -32,5 +32,11 @@ namespace LibManagement.Forms
             bookForm bookForm = new bookForm();
             bookForm.ShowDialog();
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            CustomerForm customerForm = new CustomerForm();
+            customerForm.ShowDialog();
+        }
     }
 }

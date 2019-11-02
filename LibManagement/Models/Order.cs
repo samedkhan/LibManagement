@@ -42,6 +42,9 @@ namespace LibManagement.Models
 
         public Customer customer { get; set; }
 
-        public List<BookOrder> bookorders { get; set; }
+        public int BookId { get; set; }
+
+        public Book book { get; set; }
+
     }
 }

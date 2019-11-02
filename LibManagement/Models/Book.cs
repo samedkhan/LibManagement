@@ -38,8 +38,7 @@ namespace LibManagement.Models
 
         public Janre janre { get; set; }
 
-        public List<BookOrder> bookorders { get; set; }
-
+        public List<Order> Orders { get; set; }
 
     }
 }

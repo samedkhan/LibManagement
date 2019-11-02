@@ -13,11 +13,8 @@ namespace LibManagement.Models
         [Key]
         public int CustomerId { get; set; }
 
-        [MaxLength(50)]
-        [Required]
-        public string IdCode { get; set; }
-
-        [MaxLength(100)]
+        
+        [MaxLength(200)]
         [Required]
         public string FullName { get; set; }
 

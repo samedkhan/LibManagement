@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201911011350276_ChangedBookClassProperties.designer.cs">
       <DependentUpon>201911011350276_ChangedBookClassProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911020257488_ChangedCustomerClassProperties.cs" />
+    <Compile Include="Migrations\201911020257488_ChangedCustomerClassProperties.designer.cs">
+      <DependentUpon>201911020257488_ChangedCustomerClassProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookOrder.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911011350276_ChangedBookClassProperties.resx">
       <DependentUpon>201911011350276_ChangedBookClassProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911020257488_ChangedCustomerClassProperties.resx">
+      <DependentUpon>201911020257488_ChangedCustomerClassProperties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

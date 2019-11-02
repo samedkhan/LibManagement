@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibManagement.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,40 @@ namespace LibManagement.Forms
 {
     public partial class dashboard : Form
     {
-        public dashboard()
+        public dashboard(User user)
         {
             InitializeComponent();
+            CheckUSer(user);
+            
         }
 
-        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        public void CheckUSer(User user)
         {
-            Application.Exit();
+            if (!user.AdminOrUser)
+            {
+                btnUsers.Enabled = false;
+                btnStatistic.Enabled = false;
+            }
         }
-
+       
         private void Button5_Click(object sender, EventArgs e)
         {
-            //DialogResult result = MessageBox.Show("Əminsinizmi?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Əminsinizmi?", "", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
+            {
+
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+                foreach (Form form in Application.OpenForms)
+                {
+                    if(form.GetType() != loginForm.GetType())
+                    {
+                        form.Hide();
+                    }
+                }
+                loginForm.Show();
+                
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -37,6 +59,17 @@ namespace LibManagement.Forms
         {
             CustomerForm customerForm = new CustomerForm();
             customerForm.ShowDialog();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            UserForm userForm = new UserForm();
+            userForm.ShowDialog();
+        }
+
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

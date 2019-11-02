@@ -10,7 +10,7 @@ using LibManagement.Models;
 
 namespace LibManagement.Models
 {
-    class Janre
+    public class Janre
     {
         public int JanreId { get; set; }
 

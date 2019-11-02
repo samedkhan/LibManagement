@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LibManagement.Models
 {
-    class Customer
+    public class Customer
     {
         [Key]
         public int CustomerId { get; set; }

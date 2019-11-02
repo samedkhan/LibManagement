@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LibManagement.Models
 {
-    class Order
+    public class Order
     {
         [Key]
         public int OrderId { get; set; }

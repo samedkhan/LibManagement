@@ -17,10 +17,10 @@ namespace LibManagement.Forms
         private readonly UserService _userService;
         public LoginForm()
         {
-            _userService = new UserService();
             InitializeComponent();
+            _userService = new UserService();
         }
-       
+
         private void BtnEnter_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
@@ -29,26 +29,21 @@ namespace LibManagement.Forms
                 return;
             }
 
-            User user = new User
-            {
-                Username = txtUsername.Text,
-                Password = txtPassword.Text,
-                
-            };
+            User user = _userService.Contain(txtUsername.Text, txtPassword.Text);
 
-            if (!_userService.Contain(user.Username, user.Password))
+            if (user == null)
             {
                 MessageBox.Show("İstifadəçi adı və ya Şifrə yalnışdır!!!");
                 return;
             }
 
-            dashboard dashboard = new dashboard();
+            dashboard dashboard = new dashboard(user);
             dashboard.Show();
-           
+
             this.Hide();
-           
+
         }
 
-       
+
     }
 }

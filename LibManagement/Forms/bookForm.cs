@@ -137,6 +137,14 @@ namespace LibManagement.Forms
                 MessageBox.Show("Boş Xanaları Doldurun");
                 return;
             }
+            foreach(var item in _bookService.AllBook())
+            {
+                if (item.Name.Contains(txtName.Text))
+                {
+                    MessageBox.Show("Bu kitab bazada mövcuddur!!!");
+                    return;
+                }
+            }
             Book book = new Book
             {
                 JanreId = (cmbJanresForChanging.SelectedItem as ComboItem).Id,
@@ -147,11 +155,8 @@ namespace LibManagement.Forms
                 RentPrice = Convert.ToDecimal(lblPrice.Text)
 
             };
-            if (_bookService.Contain(book.Name))
-            {
-                MessageBox.Show("Bu kitab bazada mövcuddur!!!");
-                return;
-            }
+
+            
             _bookService.Add(book);
             MessageBox.Show(book.Name + " adlı kitab bazaya daxil edildi!!!");
             dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece);
@@ -183,18 +188,27 @@ namespace LibManagement.Forms
             if (!string.IsNullOrEmpty(txtBookSearch.Text))
             {
                 cmbJanres.SelectedIndex = 0;
-                
-               book = _bookService.FindByName(txtBookSearch.Text);
+
+                book = _bookService.FindByName(txtBookSearch.Text);
                 if (book == null)
                 {
                     dataGridView1.Rows.Clear();
-                   
+
                 }
                 else
                 {
                     dataGridView1.Rows.Clear();
                     dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece);
                 }
+                //dataGridView1.Rows.Clear();
+                //foreach (var item in _bookService.AllBook())
+                //{
+                //    if (item.Name.Contains(txtBookSearch.Text.ToLower()))
+                //    {
+
+                //        dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece);
+                //    }
+                //}
 
             }
             else

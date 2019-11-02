@@ -8,7 +8,7 @@ using LibManagement.Models;
 
 namespace LibManagement.Services
 {
-    
+
     class UserService
     {
         private readonly LibManagementContext _context;
@@ -20,43 +20,41 @@ namespace LibManagement.Services
 
         public void Add(User user)
         {
-           
+
             _context.Users.Add(user);
             _context.SaveChanges();
         }
 
         public void Update(User user)
         {
-
+            _context.Entry(user).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Delete(User user)
         {
-           
+
             _context.Users.Remove(user);
             _context.SaveChanges();
         }
 
-        public List<User> GetAllAdmins()
-        {
-            return _context.Users.Where(u => u.AdminOrUser == true).ToList();
-        }
+
         public List<User> GetAllUsers()
         {
-            return _context.Users.Where(u => u.AdminOrUser == false).ToList();
+            return _context.Users.ToList();
         }
 
-        public User FindUser(int id)
+        public User Find(int id)
         {
-            return _context.Users.FirstOrDefault(u=>u.UserId == id);
+            return _context.Users.FirstOrDefault(u => u.UserId == id);
         }
 
-        public bool Contain(string username, string password)
+        public User Contain(string username, string password)
         {
-            return _context.Users.Any(u => u.Username.Contains(username) && u.Password.Contains(password));
+            return _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            //    return _context.Users.Any(u => u.Username.Contains(username) && u.Password.Contains(password));
         }
 
-        public User Find(string username, string password)
+        public User FindUser(string username, string password)
         {
             return _context.Users.Where(u => u.Username.Contains(username) && u.Password.Contains(password)).FirstOrDefault();
         }

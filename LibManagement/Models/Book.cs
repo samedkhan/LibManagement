@@ -22,17 +22,18 @@ namespace LibManagement.Models
         [Required]
         public string AutorName { get; set; }
                 
-
         public int TotalPiece { get; set; }
 
-        
+        public int InOrder { get; set; }
+
+        public int InLibrary { get; set; }
+
         [Column(TypeName = "money")]
-        
         public decimal SalePrice { get; set; }
 
         [Column(TypeName = "money")]
-        
         public decimal RentPrice { get; set; }
+
 
         public int JanreId { get; set; }
 

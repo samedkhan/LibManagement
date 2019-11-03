@@ -81,6 +81,12 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,18 @@
     <Compile Include="Migrations\201911020700004_RemovedBookOrdersChangedBookAndORderProperties.designer.cs">
       <DependentUpon>201911020700004_RemovedBookOrdersChangedBookAndORderProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911021358293_ChangedOrderClassProperty.cs" />
+    <Compile Include="Migrations\201911021358293_ChangedOrderClassProperty.designer.cs">
+      <DependentUpon>201911021358293_ChangedOrderClassProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911021802533_ChangedBookProperties.cs" />
+    <Compile Include="Migrations\201911021802533_ChangedBookProperties.designer.cs">
+      <DependentUpon>201911021802533_ChangedBookProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911030641359_ChangedBookPropertyADdedInLibrary.cs" />
+    <Compile Include="Migrations\201911030641359_ChangedBookPropertyADdedInLibrary.designer.cs">
+      <DependentUpon>201911030641359_ChangedBookPropertyADdedInLibrary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -127,6 +145,7 @@
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\JanreService.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\UserService.cs" />
     <EmbeddedResource Include="Forms\bookForm.resx">
       <DependentUpon>bookForm.cs</DependentUpon>
@@ -139,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
@@ -163,6 +185,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911020700004_RemovedBookOrdersChangedBookAndORderProperties.resx">
       <DependentUpon>201911020700004_RemovedBookOrdersChangedBookAndORderProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911021358293_ChangedOrderClassProperty.resx">
+      <DependentUpon>201911021358293_ChangedOrderClassProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911021802533_ChangedBookProperties.resx">
+      <DependentUpon>201911021802533_ChangedBookProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911030641359_ChangedBookPropertyADdedInLibrary.resx">
+      <DependentUpon>201911030641359_ChangedBookPropertyADdedInLibrary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

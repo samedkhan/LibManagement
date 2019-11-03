@@ -38,6 +38,7 @@ namespace LibManagement.Forms
             }
 
             dashboard dashboard = new dashboard(user);
+            dashboard.Text = user.FullName;
             dashboard.Show();
 
             this.Hide();

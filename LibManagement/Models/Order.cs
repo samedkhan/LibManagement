@@ -29,6 +29,8 @@ namespace LibManagement.Models
         [Column(TypeName = "money")]
         public decimal FineForLate { get; set; }
 
+        [Column(TypeName = "money")]
+        public decimal TotalPrice { get; set; }
 
         [Required]
         [Column(TypeName = "bit")]

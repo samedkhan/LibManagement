@@ -38,7 +38,7 @@ namespace LibManagement.Forms
             
             foreach(var item in _bookService.AllBook())
             {
-                dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece);
+                dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece, item.InLibrary, item.InOrder );
             }
         }
 
@@ -93,7 +93,7 @@ namespace LibManagement.Forms
             {
                 foreach (var item in _bookService.AllBookById((cmbJanres.SelectedItem as ComboItem).Id))
                 {
-                    dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece);
+                    dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece, item.InLibrary, item.InOrder);
                 }
             }
             else
@@ -152,14 +152,16 @@ namespace LibManagement.Forms
                 AutorName = txtAuthor.Text,
                 TotalPiece = Convert.ToInt32(numPiece.Value),
                 SalePrice = Convert.ToDecimal(NumPrice.Value),
-                RentPrice = Convert.ToDecimal(lblPrice.Text)
+                RentPrice = Convert.ToDecimal(lblPrice.Text),
+                InLibrary = Convert.ToInt32(numPiece.Value),
 
             };
 
             
             _bookService.Add(book);
+            
             MessageBox.Show(book.Name + " adlı kitab bazaya daxil edildi!!!");
-            dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece);
+            dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece, book.InLibrary, book.InOrder);
             Reset();
             
 
@@ -198,17 +200,9 @@ namespace LibManagement.Forms
                 else
                 {
                     dataGridView1.Rows.Clear();
-                    dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece);
+                    dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece, book.InLibrary, book.InOrder);
                 }
-                //dataGridView1.Rows.Clear();
-                //foreach (var item in _bookService.AllBook())
-                //{
-                //    if (item.Name.Contains(txtBookSearch.Text.ToLower()))
-                //    {
-
-                //        dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece);
-                //    }
-                //}
+                
 
             }
             else
@@ -243,7 +237,7 @@ namespace LibManagement.Forms
             _selectedBook.SalePrice = Convert.ToDecimal(NumPrice.Value);
             _selectedBook.RentPrice = Convert.ToDecimal(lblPrice.Text);
             _selectedBook.TotalPiece = Convert.ToInt32(numPiece.Value);
-
+            
             _bookService.Update(_selectedBook);
             MessageBox.Show("Məlumat yeniləndi !!!");
             dataGridView1.Rows[_selectedIndex].Cells[1].Value = txtName.Text;

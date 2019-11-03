@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibManagement.Helpers
 {
-    class ComboItem
+    public class ComboItem
     {
         public int Id { get; set; }
 

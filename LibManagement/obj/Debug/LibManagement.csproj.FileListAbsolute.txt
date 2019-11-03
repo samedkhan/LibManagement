@@ -24,3 +24,7 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.CustomerForm.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.RemovedBookOrdersChangedBookAndORderProperties.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.UserForm.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.OrderForm.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedOrderClassProperty.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookProperties.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookPropertyADdedInLibrary.resources

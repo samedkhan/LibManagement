@@ -13,19 +13,21 @@ namespace LibManagement.Forms
 {
     public partial class dashboard : Form
     {
+        private User User;
         public dashboard(User user)
         {
+            this.User = user;
             InitializeComponent();
-            CheckUSer(user);
-            
+            CheckUSer();
         }
 
-        public void CheckUSer(User user)
+        public void CheckUSer()
         {
-            if (!user.AdminOrUser)
+            if (!this.User.AdminOrUser)
             {
                 btnUsers.Enabled = false;
                 btnStatistic.Enabled = false;
+              
             }
         }
        
@@ -70,6 +72,13 @@ namespace LibManagement.Forms
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            OrderForm orderForm = new OrderForm(this.User);
+            orderForm.Text = orderForm.Text +  " --- "  +  this.User.FullName;
+            orderForm.ShowDialog();
         }
     }
 }

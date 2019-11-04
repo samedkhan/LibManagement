@@ -20,10 +20,11 @@ namespace LibManagement.Forms
         private int _selectedIndex;
         private Book _selectedBook;
         private int rentPercent = 1;
-        public bookForm()
+        private User _enteredUser;
+        public bookForm(User user)
         {
             InitializeComponent();
-
+            this._enteredUser = user;
             _bookService = new BookService();
             _janreService = new JanreService();
             
@@ -71,7 +72,7 @@ namespace LibManagement.Forms
         public void Reset()
         {
             btnAdd.Hide();
-            btnDelete.Hide();
+            btnPassiv.Hide();
             btnUpdate.Hide();
             cmbJanresForChanging.SelectedIndex = -1;
             txtAuthor.Clear();
@@ -179,31 +180,25 @@ namespace LibManagement.Forms
             NumPrice.Value = _selectedBook.SalePrice;
             lblPrice.Text = _selectedBook.RentPrice.ToString("0.0");
             btnAdd.Hide();
-            btnDelete.Show();
+            btnPassiv.Show();
             btnUpdate.Show();
 
         }
 
         private void TxtBookSearch_TextChanged(object sender, EventArgs e)
         {
-            Book book;
+            dataGridView1.Rows.Clear();
             if (!string.IsNullOrEmpty(txtBookSearch.Text))
             {
                 cmbJanres.SelectedIndex = 0;
-
-                book = _bookService.FindByName(txtBookSearch.Text);
-                if (book == null)
-                {
-                    dataGridView1.Rows.Clear();
-
-                }
-                else
-                {
-                    dataGridView1.Rows.Clear();
-                    dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece, book.InLibrary, book.InOrder);
-                }
                 
-
+                foreach(Book book in _bookService.AllBook())
+                {
+                    if (book.Name.ToLower().Contains(txtBookSearch.Text.ToLower()))
+                    {
+                        dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece, book.InLibrary, book.InOrder);
+                    }
+                }
             }
             else
             {
@@ -212,17 +207,7 @@ namespace LibManagement.Forms
 
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult r = MessageBox.Show("Əminsinizmi?", _selectedBook.Name, MessageBoxButtons.YesNo);
-
-            if (r == DialogResult.Yes)
-            {
-                _bookService.Delete(_selectedBook);
-                Reset();
-                dataGridView1.Rows.RemoveAt(_selectedIndex);
-            }
-        }
+      
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
@@ -237,12 +222,14 @@ namespace LibManagement.Forms
             _selectedBook.SalePrice = Convert.ToDecimal(NumPrice.Value);
             _selectedBook.RentPrice = Convert.ToDecimal(lblPrice.Text);
             _selectedBook.TotalPiece = Convert.ToInt32(numPiece.Value);
-            
+            _selectedBook.InLibrary = Convert.ToInt32(dataGridView1.Rows[_selectedIndex].Cells[4].Value) + Convert.ToInt32(numPiece.Value);
+
             _bookService.Update(_selectedBook);
             MessageBox.Show("Məlumat yeniləndi !!!");
             dataGridView1.Rows[_selectedIndex].Cells[1].Value = txtName.Text;
             dataGridView1.Rows[_selectedIndex].Cells[2].Value = (cmbJanresForChanging.SelectedItem as ComboItem).Value;
             dataGridView1.Rows[_selectedIndex].Cells[3].Value = numPiece.Value;
+            dataGridView1.Rows[_selectedIndex].Cells[4].Value = _selectedBook.InLibrary.ToString();
             Reset();
 
         }
@@ -251,6 +238,39 @@ namespace LibManagement.Forms
         {
             decimal RentPrice = (Convert.ToDecimal(NumPrice.Value) * rentPercent) / 100;
             lblPrice.Text = RentPrice.ToString();
+        }
+
+        private void BtnDashboard_Click(object sender, EventArgs e)
+        {
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void BtnPassiv_Click(object sender, EventArgs e)
+        {
+            if (_selectedBook.InOrder > 0)
+            {
+                MessageBox.Show("Bu kitab hal hazırda sifarişdədir, PASSİV edilə bilməz!!!");
+                return;
+            }
+            else
+            {
+                DialogResult r = MessageBox.Show("Əminsinizmi?", _selectedBook.Name, MessageBoxButtons.YesNo);
+
+                if (r == DialogResult.Yes)
+                {
+                    _selectedBook.TotalPiece = 0;
+                    _selectedBook.InLibrary = 0;
+                    _selectedBook.InOrder = 0;
+                    _bookService.Update(_selectedBook);
+                    Reset();
+                    dataGridView1.Rows[_selectedIndex].Cells[3].Value = "0";
+                    dataGridView1.Rows[_selectedIndex].Cells[4].Value = "0";
+                    dataGridView1.Rows[_selectedIndex].Cells[5].Value = "0";
+                }
+            }
+            
         }
     }
 }

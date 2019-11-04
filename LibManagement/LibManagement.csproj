@@ -134,6 +134,14 @@
     <Compile Include="Migrations\201911030641359_ChangedBookPropertyADdedInLibrary.designer.cs">
       <DependentUpon>201911030641359_ChangedBookPropertyADdedInLibrary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911040708384_ChangedUserClassPropertyAddedCraterId.cs" />
+    <Compile Include="Migrations\201911040708384_ChangedUserClassPropertyAddedCraterId.designer.cs">
+      <DependentUpon>201911040708384_ChangedUserClassPropertyAddedCraterId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911041735353_UserAndCustomerClassesAddedPropertyISPASSIV.cs" />
+    <Compile Include="Migrations\201911041735353_UserAndCustomerClassesAddedPropertyISPASSIV.designer.cs">
+      <DependentUpon>201911041735353_UserAndCustomerClassesAddedPropertyISPASSIV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -194,6 +202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911030641359_ChangedBookPropertyADdedInLibrary.resx">
       <DependentUpon>201911030641359_ChangedBookPropertyADdedInLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911040708384_ChangedUserClassPropertyAddedCraterId.resx">
+      <DependentUpon>201911040708384_ChangedUserClassPropertyAddedCraterId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911041735353_UserAndCustomerClassesAddedPropertyISPASSIV.resx">
+      <DependentUpon>201911041735353_UserAndCustomerClassesAddedPropertyISPASSIV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

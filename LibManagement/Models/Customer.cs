@@ -22,6 +22,9 @@ namespace LibManagement.Models
         [Required]
         public string PhoneNumber { get; set; }
 
+        [Column(TypeName = "bit")]
+        public bool IsPassiv { get; set; }
+
         public List<Order> orders { get; set; }
     }
 }

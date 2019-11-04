@@ -40,6 +40,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dgvCustomers.Location = new System.Drawing.Point(234, 32);
+            this.dgvCustomers.Location = new System.Drawing.Point(234, 31);
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.Size = new System.Drawing.Size(423, 224);
             this.dgvCustomers.TabIndex = 0;
@@ -81,16 +82,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(232, 13);
+            this.label1.Location = new System.Drawing.Point(232, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Müşətrilər";
+            this.label1.Text = "Müştərilər";
             // 
             // txtFullName
             // 
             this.txtFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullName.Location = new System.Drawing.Point(9, 75);
+            this.txtFullName.Location = new System.Drawing.Point(9, 74);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(216, 22);
             this.txtFullName.TabIndex = 0;
@@ -100,7 +101,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(75, 53);
+            this.label2.Location = new System.Drawing.Point(75, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 3;
@@ -110,7 +111,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(87, 114);
+            this.label3.Location = new System.Drawing.Point(87, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 5;
@@ -119,7 +120,7 @@
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Location = new System.Drawing.Point(9, 136);
+            this.txtPhone.Location = new System.Drawing.Point(9, 135);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(216, 22);
             this.txtPhone.TabIndex = 1;
@@ -129,7 +130,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(9, 221);
+            this.btnAdd.Location = new System.Drawing.Point(9, 220);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(216, 35);
             this.btnAdd.TabIndex = 2;
@@ -141,7 +142,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(9, 221);
+            this.btnDelete.Location = new System.Drawing.Point(9, 220);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(101, 35);
             this.btnDelete.TabIndex = 3;
@@ -154,7 +155,7 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Yellow;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(124, 221);
+            this.btnUpdate.Location = new System.Drawing.Point(124, 220);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(101, 35);
             this.btnUpdate.TabIndex = 4;
@@ -163,11 +164,23 @@
             this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(9, 5);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(86, 23);
+            this.btnDashboard.TabIndex = 20;
+            this.btnDashboard.Text = "<- GERİYƏ";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 265);
+            this.ClientSize = new System.Drawing.Size(669, 261);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -177,6 +190,7 @@
             this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvCustomers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Müştəri paneli";
@@ -200,5 +214,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

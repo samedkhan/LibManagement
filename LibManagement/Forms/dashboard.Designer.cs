@@ -97,7 +97,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(188, 30);
             this.button6.TabIndex = 3;
-            this.button6.Text = "Sifariş yarat";
+            this.button6.Text = "Sifarişlər";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 

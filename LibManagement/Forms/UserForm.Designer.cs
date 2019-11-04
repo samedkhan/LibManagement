@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnPassiv = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
@@ -46,6 +46,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.chkAdmin = new System.Windows.Forms.CheckBox();
             this.chkUser = new System.Windows.Forms.CheckBox();
+            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,32 +54,33 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Yellow;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(127, 230);
+            this.btnUpdate.Location = new System.Drawing.Point(127, 272);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(101, 35);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "YENİLƏ";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
-            // btnDelete
+            // btnPassiv
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(12, 230);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 35);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "SİL";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.btnPassiv.BackColor = System.Drawing.Color.Gray;
+            this.btnPassiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPassiv.Location = new System.Drawing.Point(12, 272);
+            this.btnPassiv.Name = "btnPassiv";
+            this.btnPassiv.Size = new System.Drawing.Size(98, 35);
+            this.btnPassiv.TabIndex = 5;
+            this.btnPassiv.Text = "PASSİV ET";
+            this.btnPassiv.UseVisualStyleBackColor = false;
+            this.btnPassiv.Visible = false;
+            this.btnPassiv.Click += new System.EventHandler(this.BtnPassiv_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(12, 230);
+            this.btnAdd.Location = new System.Drawing.Point(12, 272);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(216, 35);
             this.btnAdd.TabIndex = 4;
@@ -90,7 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 77);
+            this.label3.Location = new System.Drawing.Point(84, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 14;
@@ -99,7 +101,7 @@
             // txtLogin
             // 
             this.txtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin.Location = new System.Drawing.Point(12, 99);
+            this.txtLogin.Location = new System.Drawing.Point(12, 141);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(216, 22);
             this.txtLogin.TabIndex = 1;
@@ -108,7 +110,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(78, 16);
+            this.label2.Location = new System.Drawing.Point(78, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 12;
@@ -117,7 +119,7 @@
             // txtFullName
             // 
             this.txtFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullName.Location = new System.Drawing.Point(12, 38);
+            this.txtFullName.Location = new System.Drawing.Point(12, 80);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(216, 22);
             this.txtFullName.TabIndex = 0;
@@ -126,7 +128,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(249, 17);
+            this.label1.Location = new System.Drawing.Point(249, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 16);
             this.label1.TabIndex = 9;
@@ -146,7 +148,7 @@
             this.Column3,
             this.Column5,
             this.Column4});
-            this.dgvUsers.Location = new System.Drawing.Point(251, 36);
+            this.dgvUsers.Location = new System.Drawing.Point(251, 78);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.Size = new System.Drawing.Size(423, 229);
             this.dgvUsers.TabIndex = 7;
@@ -182,7 +184,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(100, 135);
+            this.label4.Location = new System.Drawing.Point(100, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 16;
@@ -191,7 +193,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(12, 157);
+            this.txtPassword.Location = new System.Drawing.Point(12, 199);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(216, 22);
             this.txtPassword.TabIndex = 2;
@@ -199,7 +201,7 @@
             // chkAdmin
             // 
             this.chkAdmin.AutoSize = true;
-            this.chkAdmin.Location = new System.Drawing.Point(12, 198);
+            this.chkAdmin.Location = new System.Drawing.Point(12, 240);
             this.chkAdmin.Name = "chkAdmin";
             this.chkAdmin.Size = new System.Drawing.Size(86, 17);
             this.chkAdmin.TabIndex = 3;
@@ -210,7 +212,7 @@
             // chkUser
             // 
             this.chkUser.AutoSize = true;
-            this.chkUser.Location = new System.Drawing.Point(160, 198);
+            this.chkUser.Location = new System.Drawing.Point(160, 240);
             this.chkUser.Name = "chkUser";
             this.chkUser.Size = new System.Drawing.Size(68, 17);
             this.chkUser.TabIndex = 17;
@@ -218,17 +220,29 @@
             this.chkUser.UseVisualStyleBackColor = true;
             this.chkUser.CheckedChanged += new System.EventHandler(this.ChkUser_CheckedChanged);
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(12, 12);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(86, 23);
+            this.btnDashboard.TabIndex = 19;
+            this.btnDashboard.Text = "<- GERİYƏ";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 284);
+            this.ClientSize = new System.Drawing.Size(684, 323);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.chkUser);
             this.Controls.Add(this.chkAdmin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnPassiv);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtLogin);
@@ -236,6 +250,7 @@
             this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UserForm";
@@ -249,7 +264,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnPassiv;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtLogin;
@@ -266,5 +281,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.CheckBox chkAdmin;
         private System.Windows.Forms.CheckBox chkUser;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

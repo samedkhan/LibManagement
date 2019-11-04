@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbJanres = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,19 +52,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnPassiv = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbJanresForChanging = new System.Windows.Forms.ComboBox();
             this.txtBookSearch = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPiece)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumPrice)).BeginInit();
@@ -85,6 +86,37 @@
             this.dataGridView1.Size = new System.Drawing.Size(703, 358);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_RowHeaderMouseDoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "id";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Kitabın adı";
+            this.Column3.Name = "Column3";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Janr";
+            this.Column2.Name = "Column2";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Ümumi Sayı";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Kitabxanada olan";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Sifarişdə olan";
+            this.Column6.Name = "Column6";
             // 
             // label1
             // 
@@ -261,19 +293,19 @@
             this.btnAdd.Visible = false;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // btnDelete
+            // btnPassiv
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDelete.Location = new System.Drawing.Point(6, 330);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(92, 35);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "SİL";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            this.btnPassiv.BackColor = System.Drawing.Color.Gray;
+            this.btnPassiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPassiv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnPassiv.Location = new System.Drawing.Point(6, 330);
+            this.btnPassiv.Name = "btnPassiv";
+            this.btnPassiv.Size = new System.Drawing.Size(106, 35);
+            this.btnPassiv.TabIndex = 10;
+            this.btnPassiv.Text = "PASSİV ET";
+            this.btnPassiv.UseVisualStyleBackColor = false;
+            this.btnPassiv.Visible = false;
+            this.btnPassiv.Click += new System.EventHandler(this.BtnPassiv_Click);
             // 
             // btnUpdate
             // 
@@ -340,49 +372,30 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
             // 
-            // Column1
+            // btnDashboard
             // 
-            this.Column1.HeaderText = "id";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Kitabın adı";
-            this.Column3.Name = "Column3";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Janr";
-            this.Column2.Name = "Column2";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Ümumi Sayı";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Kitabxanada olan";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Sifarişdə olan";
-            this.Column6.Name = "Column6";
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Location = new System.Drawing.Point(8, 12);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(90, 23);
+            this.btnDashboard.TabIndex = 22;
+            this.btnDashboard.Text = "<- GERİYƏ";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
             // 
             // bookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 410);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtBookSearch);
             this.Controls.Add(this.cmbJanresForChanging);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnPassiv);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.label10);
@@ -401,6 +414,7 @@
             this.Controls.Add(this.cmbJanres);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "bookForm";
@@ -433,7 +447,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnPassiv;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.ComboBox cmbJanres;
         private System.Windows.Forms.Label label11;
@@ -447,5 +461,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

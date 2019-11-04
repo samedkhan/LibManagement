@@ -17,8 +17,10 @@ namespace LibManagement.Forms
         private readonly CustomerService _customerService;
         private Customer _selectedCustomer;
         private int _selectedIndex;
-        public CustomerForm()
+        private User _enteredUser;
+        public CustomerForm(User user)
         {
+            this._enteredUser = user;
             _customerService = new CustomerService();
             InitializeComponent();
             FillDgv();
@@ -141,6 +143,13 @@ namespace LibManagement.Forms
             REset();
             FillDgv();
 
+        }
+
+        private void BtnDashboard_Click(object sender, EventArgs e)
+        {
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+            this.Hide();
         }
     }
 }

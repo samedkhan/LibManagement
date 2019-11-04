@@ -28,6 +28,7 @@ namespace LibManagement.Services
         public void Update(User user)
         {
             _context.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void Delete(User user)
@@ -48,16 +49,13 @@ namespace LibManagement.Services
             return _context.Users.FirstOrDefault(u => u.UserId == id);
         }
 
-        public User Contain(string username, string password)
+        public User FindUsername(string username, string password)
         {
             return _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
-            //    return _context.Users.Any(u => u.Username.Contains(username) && u.Password.Contains(password));
+           
         }
 
-        public User FindUser(string username, string password)
-        {
-            return _context.Users.Where(u => u.Username.Contains(username) && u.Password.Contains(password)).FirstOrDefault();
-        }
+        
 
     }
 }

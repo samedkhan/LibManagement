@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibManagement.Services;
 using LibManagement.Models;
+using System.Security.Cryptography;
 
 namespace LibManagement.Forms
 {
@@ -19,9 +20,12 @@ namespace LibManagement.Forms
         private string Admin;
         private User _selectedUser;
         private int _selectedIndex;
-
-        public UserForm()
+        public User _enteredUser;
+        
+        
+        public UserForm(User user)
         {
+            this._enteredUser = user;
             _userService = new UserService();
             InitializeComponent();
             FillDgv();
@@ -33,7 +37,7 @@ namespace LibManagement.Forms
         {
             foreach (var item in _userService.GetAllUsers())
             {
-                if (item.AdminOrUser == true)
+                if (item.IsAdmin == true)
                 {
                     Admin = "Administrator";
                 }
@@ -56,9 +60,21 @@ namespace LibManagement.Forms
             txtPassword.Clear();
             chkAdmin.Checked = false;
             chkUser.Checked = false;
-            btnDelete.Hide();
+            btnPassiv.Hide();
             btnUpdate.Hide();
             btnAdd.Show();
+        }
+
+        #endregion
+
+        #region Password Creating
+
+        public string MD5Hash(string password)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] bytes = md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(password));
+            string result = BitConverter.ToString(bytes).Replace("-", string.Empty);
+            return result;
         }
 
         #endregion
@@ -72,7 +88,7 @@ namespace LibManagement.Forms
                 foreach (var item in _userService.GetAllUsers())
                 {
 
-                    if (item.AdminOrUser != true)
+                    if (item.IsAdmin != true)
                     {
                         dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "İstifadəçi");
                     }
@@ -94,7 +110,7 @@ namespace LibManagement.Forms
                 foreach (var item in _userService.GetAllUsers())
                 {
 
-                    if (item.AdminOrUser == true)
+                    if (item.IsAdmin == true)
                     {
                         dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Administrator");
                     }
@@ -126,15 +142,17 @@ namespace LibManagement.Forms
             {
                 FullName = txtFullName.Text,
                 Username = txtLogin.Text,
-                Password = txtPassword.Text
+                Password = MD5Hash(txtPassword.Text),
+                CreaterId = _enteredUser.UserId,
+                
             };
             if (chkAdmin.Checked)
             {
-                user.AdminOrUser = true;
+                user.IsAdmin = true;
             }
             else
             {
-                user.AdminOrUser = false;
+                user.IsAdmin = false;
             }
 
             _userService.Add(user);
@@ -144,14 +162,15 @@ namespace LibManagement.Forms
 
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
+        private void BtnPassiv_Click(object sender, EventArgs e)
         {
+
             DialogResult r = MessageBox.Show("Əminsinizmi?", _selectedUser.FullName, MessageBoxButtons.YesNo);
 
             if (r == DialogResult.Yes)
             {
-                MessageBox.Show(_selectedUser.FullName + " bazadan silindi!!!");
-                _userService.Delete(_selectedUser);
+                _selectedUser.IsPassiv = true;
+                _userService.Update(_selectedUser);
                 Reset();
             }
 
@@ -165,7 +184,7 @@ namespace LibManagement.Forms
             txtLogin.Text = _selectedUser.Username;
             txtPassword.Text = _selectedUser.Password;
 
-            if (_selectedUser.AdminOrUser == true)
+            if (_selectedUser.IsAdmin == true)
             {
                 chkAdmin.Checked = true;
             }
@@ -174,9 +193,45 @@ namespace LibManagement.Forms
                 chkUser.Checked = true;
             }
 
-            btnDelete.Show();
+            btnPassiv.Show();
             btnUpdate.Show();
             btnAdd.Hide();
+        }
+
+        private void BtnDashboard_Click(object sender, EventArgs e)
+        {
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(txtLogin.Text) || string.IsNullOrEmpty(txtFullName.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Boşluqları doldurun!!!");
+                return;
+            }
+
+            _selectedUser.IsPassiv = false;
+
+            if (chkAdmin.Checked == true)
+            {
+                _selectedUser.IsAdmin = true;
+            }
+            else
+            {
+                _selectedUser.IsAdmin = false;
+            }
+
+            _selectedUser.Password = txtPassword.Text;
+            _selectedUser.FullName = txtFullName.Text;
+            _selectedUser.Username = txtLogin.Text;
+            _selectedUser.CreaterId = _enteredUser.UserId;
+
+            _userService.Update(_selectedUser);
+            MessageBox.Show("Məlumatlar yeniləndi!!!");
+            Reset();
         }
     }
 }

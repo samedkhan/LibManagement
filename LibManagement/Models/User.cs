@@ -23,11 +23,17 @@ namespace LibManagement.Models
 
 
         [Column(TypeName = "bit")]
-        public bool AdminOrUser { get; set; }
+        public bool IsAdmin { get; set; }
 
+
+        [Column(TypeName = "bit")]
+        public bool IsPassiv { get; set; }
 
         [MaxLength(100)]
         public string Password { get; set; }
+
+
+        public int CreaterId { get; set; }
 
         public List<Order> Orders { get; set; }
     }

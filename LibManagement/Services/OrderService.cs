@@ -47,13 +47,12 @@ namespace LibManagement.Services
             return _context.Orders.Find(id);
         }
 
-        public decimal CalculateTotalPrice()
+        public decimal CalculateTotalPay()
         {
-            
             return _context.Orders.Sum(o => o.TotalPrice);
         }
 
-        public decimal CalculateCashPrice()
+        public decimal CalculateCashPayment()
         {
             return _context.Orders.Where(o=>o.Status!=true).Sum(o => o.TotalPrice);
         }

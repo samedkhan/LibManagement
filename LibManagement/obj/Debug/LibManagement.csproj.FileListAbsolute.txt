@@ -28,3 +28,5 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedOrderClassProperty.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookProperties.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookPropertyADdedInLibrary.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedUserClassPropertyAddedCraterId.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.UserAndCustomerClassesAddedPropertyISPASSIV.resources

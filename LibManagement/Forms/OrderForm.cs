@@ -20,21 +20,24 @@ namespace LibManagement.Forms
         private readonly UserService _userService;
         private readonly OrderService _orderService;
         private string Status;
-        private User user;
+        private User _enteredUser;
         private Order _selectedOrder;
         private int _selectedIndex;
         public OrderForm(User user)
         {
             
             InitializeComponent();
-            this.user = user;
+            this._enteredUser = user;
             _bookService = new BookService();
             _customerService = new CustomerService();
             _userService = new UserService();
             _orderService = new OrderService();
-            
 
-            ChekingFinePRice();
+            Reset();
+
+            CalculatePayments();
+
+            CalculateFinePayments();
 
             FillDgv();
 
@@ -111,37 +114,33 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region Checking
 
+        #region Calculate
 
-
-        public void ChekingFinePRice() // BURA DIQQET ELE NURLAN - ne oldusa bunu yazandan sonra oldu.
+        public void CalculatePayments()
         {
-            lblTotal.Text = _orderService.CalculateTotalPrice().ToString("0.00" + " AZN"); //Bele yazanda ishleyir ama bazada order olmazsa problem yaradir
-            lblKassa.Text = _orderService.CalculateCashPrice().ToString("0.00" + " AZN");
-            //if (_orderService.GetAllOrders().Count != 0)
-            //{
-            //    if (_orderService.CheckOrderStatus())
-            //    {
-            //        lblKassa.Text = _orderService.CalculateCashPrice().ToString("0.00" + " AZN"); // Calculate Cash Payment
-            //    }
+            if (_orderService.GetAllOrders().Count != 0)
+            {
+                if (_orderService.CheckOrderStatus())
+                {
+                    lblKassa.Text = _orderService.CalculateCashPayment().ToString("0.00" + " AZN"); // Calculate Cash Payment
+                }
 
-            //    lblTotal.Text = _orderService.CalculateTotalPrice().ToString("0.00" + " AZN"); // Calculate Total Price
+                lblTotal.Text = _orderService.CalculateTotalPay().ToString("0.00" + " AZN"); // Calculate Total Price
 
-            //}
-            dtpDeadline.MinDate = DateTime.Today;
-           
-            
-            
+            }
+        }
 
+        public void CalculateFinePayments()
+        {
             foreach (var item in _orderService.GetAllOrders())
             {
-                
+
                 int daysDiff = ((TimeSpan)(DateTime.Today - item.Deadline)).Days;
                 if (daysDiff >= 1 && item.Status == true)
                 {
                     item.FineForLate = ((decimal)item.book.SalePrice * (decimal)0.5) / daysDiff; // Calculate Fine Pay for Late days
-           
+
                 }
                 item.TotalPrice = item.TotalRentPrice + item.FineForLate; // Calculate Total Price
 
@@ -151,7 +150,8 @@ namespace LibManagement.Forms
         }
 
         #endregion
-        
+
+
         private void ChkClosed_CheckedChanged(object sender, EventArgs e) // SHOW by CLOSED STATUS
         {
 
@@ -159,7 +159,7 @@ namespace LibManagement.Forms
             {
                 chkOpened.Checked = false;
                 dgvOrders.Rows.Clear();
-                foreach (var item in _orderService.GetAllOrders())
+                foreach (Order item in _orderService.GetAllOrders())
                 {
 
                     if (item.Status==false)
@@ -189,7 +189,7 @@ namespace LibManagement.Forms
             {
                 chkClosed.Checked = false;
                 dgvOrders.Rows.Clear();
-                foreach (var item in _orderService.GetAllOrders())
+                foreach (Order item in _orderService.GetAllOrders())
                 {
 
                     if (item.Status == true)
@@ -222,7 +222,7 @@ namespace LibManagement.Forms
                 return;
             }
 
-            foreach(var item in _orderService.GetAllOrders())
+            foreach(Order item in _orderService.GetAllOrders())
             {
                 if(item.customer.FullName.Contains((cmbCustomers.SelectedItem as ComboItem).Value)
                     && item.book.Name.Contains((cmbBook.SelectedItem as ComboItem).Value))
@@ -244,13 +244,7 @@ namespace LibManagement.Forms
                 Status = true,
                 FineForLate = 0,
                 TotalRentPrice = daysDiff * _bookService.Find((cmbBook.SelectedItem as ComboItem).Id).RentPrice,
-                UserId = user.UserId,
-                //user = new User
-                //{
-                //    UserId = user.UserId,
-                //    FullName = user.FullName,
-                //}
-
+                UserId = _enteredUser.UserId,
             };
             _orderService.Add(order);
             _bookService.Find((cmbBook.SelectedItem as ComboItem).Id).InLibrary--; // Book update - bunu mevbur bele etdim yoxsa ishlemir ozun test ele goreceksen
@@ -258,23 +252,25 @@ namespace LibManagement.Forms
             _bookService.Find((cmbBook.SelectedItem as ComboItem).Id).InOrder++;
             _bookService.Update(_bookService.Find((cmbBook.SelectedItem as ComboItem).Id)); //burani sen gunorta yazdin ishleyirdi sonra bazani temizledim sifirdan bashladim yazmaga onda problem yaratdi bele deyishdim bu da gah ishleyir gah yox
 
-            lblTotal.Text = _orderService.CalculateTotalPrice().ToString("0.00" + " AZN"); // Calculate Total Price
+            // Calculate Total Price
 
             MessageBox.Show("Sifariş təsdiq edildi Sifarişin məbləği:  " + order.TotalRentPrice.ToString("0.0") + " AZN");
 
-           
+            //MessageBox.Show(order.customer.FullName);
 
-            dgvOrders.Rows.Add(order.OrderId, //bura da problem verir ne meseledir anlamiram
-                                   order.customer.FullName,
-                                   order.book.Name,
-                                   order.CreatedAt.ToString("dd.MM.yyyy"),
-                                   order.Deadline.ToString("dd.MM.yyyy"),
-                                   order.TotalRentPrice.ToString("0.0" + " AZN"),
-                                   order.FineForLate.ToString("0.0" + " AZN"),
-                                   order.user.FullName,
-                                   "AÇIQ");
+            //dgvOrders.Rows.Add(order.book.Name, //bura da problem verir ne meseledir anlamiram
+            //                       order.customer.FullName,
+            //                       order.book.Name,
+            //                       order.CreatedAt.ToString("dd.MM.yyyy"),
+            //                       order.Deadline.ToString("dd.MM.yyyy"),
+            //                       order.TotalRentPrice.ToString("0.0" + " AZN"),
+            //                       order.FineForLate.ToString("0.0" + " AZN"),
+            //                       order.user.FullName,
+            //                       "AÇIQ");
 
-           
+            dgvOrders.Rows.Clear();
+            CalculatePayments();
+            FillDgv();
             Reset();
 
            
@@ -338,7 +334,7 @@ namespace LibManagement.Forms
                 MessageBox.Show("Sifariş silindi!!!");
                 dgvOrders.Rows.RemoveAt(_selectedIndex);
 
-                lblTotal.Text = _orderService.CalculateTotalPrice().ToString("0.00" + " AZN");
+                lblTotal.Text = _orderService.CalculateTotalPay().ToString("0.00" + " AZN");
                 //if (_orderService.GetAllOrders().Count != 0)
                 //{
                 //    lblTotal.Text = _orderService.CalculateTotalPrice().ToString("0.00" + " AZN");
@@ -362,8 +358,39 @@ namespace LibManagement.Forms
                 _selectedOrder.book.InLibrary++;
                 _selectedOrder.book.InOrder--;
                 _orderService.Update(_selectedOrder);
-                lblTotal.Text = _orderService.CalculateTotalPrice().ToString("0.00" + " AZN");
+                lblTotal.Text = _orderService.CalculateTotalPay().ToString("0.00" + " AZN");
                 dgvOrders.Rows[_selectedIndex].Cells[8].Value = "TAMAMLANIB";
+            }
+        }
+
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void TxtCustomer_TextChanged(object sender, EventArgs e)
+        {
+            dgvOrders.Rows.Clear();
+            foreach (Order item in _orderService.GetAllOrders())
+            {
+                if (item.customer.FullName.ToLower().Contains(txtCustomer.Text.ToLower()) && item.Status == true)
+                {
+             
+                    dgvOrders.Rows.Add(item.OrderId,
+                                        item.customer.FullName,
+                                        item.book.Name,
+                                        item.CreatedAt.ToString("dd.MM.yyyy"),
+                                        item.Deadline.ToString("dd.MM.yyyy"),
+                                        item.TotalRentPrice.ToString("0.0" + " AZN"),
+                                        item.FineForLate.ToString("0.0" + " AZN"),
+                                        item.user.FullName,
+                                        "AÇIQ");
+                }
+
+               
             }
         }
     }

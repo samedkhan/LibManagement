@@ -13,17 +13,17 @@ namespace LibManagement.Forms
 {
     public partial class dashboard : Form
     {
-        private User User;
+        private User _enteredUser;
         public dashboard(User user)
         {
-            this.User = user;
+            this._enteredUser = user;
             InitializeComponent();
             CheckUSer();
         }
 
         public void CheckUSer()
         {
-            if (!this.User.AdminOrUser)
+            if (!this._enteredUser.IsAdmin)
             {
                 btnUsers.Enabled = false;
                 btnStatistic.Enabled = false;
@@ -53,19 +53,22 @@ namespace LibManagement.Forms
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            bookForm bookForm = new bookForm();
+            bookForm bookForm = new bookForm(_enteredUser);
+            bookForm.Text = bookForm.Text + " --- " + this._enteredUser.FullName;
             bookForm.ShowDialog();
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            CustomerForm customerForm = new CustomerForm();
+            CustomerForm customerForm = new CustomerForm(_enteredUser);
+            customerForm.Text = customerForm.Text + " --- " + this._enteredUser.FullName;
             customerForm.ShowDialog();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm();
+            UserForm userForm = new UserForm(this._enteredUser);
+            userForm.Text = userForm.Text + " --- " + this._enteredUser.FullName;
             userForm.ShowDialog();
         }
 
@@ -76,8 +79,8 @@ namespace LibManagement.Forms
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            OrderForm orderForm = new OrderForm(this.User);
-            orderForm.Text = orderForm.Text +  " --- "  +  this.User.FullName;
+            OrderForm orderForm = new OrderForm(this._enteredUser);
+            orderForm.Text = orderForm.Text +  " --- "  +  this._enteredUser.FullName;
             orderForm.ShowDialog();
         }
     }

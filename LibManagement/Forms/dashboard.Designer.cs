@@ -28,107 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.btnStatistic = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnOrders = new System.Windows.Forms.Button();
+            this.btnBooks = new System.Windows.Forms.Button();
+            this.btnCustomers = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // panel1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Kitablar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.panel1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panel1.Controls.Add(this.btnLogout);
+            this.panel1.Controls.Add(this.btnStatistic);
+            this.panel1.Controls.Add(this.btnOrders);
+            this.panel1.Controls.Add(this.btnBooks);
+            this.panel1.Controls.Add(this.btnCustomers);
+            this.panel1.Controls.Add(this.btnUsers);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(211, 290);
+            this.panel1.TabIndex = 4;
             // 
-            // btnUsers
+            // btnLogout
             // 
-            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsers.Location = new System.Drawing.Point(12, 20);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(188, 30);
-            this.btnUsers.TabIndex = 0;
-            this.btnUsers.Text = "İdarəçilər";
-            this.btnUsers.UseVisualStyleBackColor = true;
-            this.btnUsers.Click += new System.EventHandler(this.Button2_Click);
+            this.btnLogout.FlatAppearance.BorderSize = 2;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnLogout.Image = global::LibManagement.Properties.Resources.logout_25px;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(4, 289);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(202, 50);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "  Çıxış";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
             // btnStatistic
             // 
-            this.btnStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistic.Location = new System.Drawing.Point(12, 200);
+            this.btnStatistic.FlatAppearance.BorderSize = 2;
+            this.btnStatistic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistic.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnStatistic.Image = global::LibManagement.Properties.Resources.statistic_25px;
+            this.btnStatistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistic.Location = new System.Drawing.Point(4, 233);
             this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(188, 30);
+            this.btnStatistic.Size = new System.Drawing.Size(202, 50);
             this.btnStatistic.TabIndex = 4;
-            this.btnStatistic.Text = "Statistika";
+            this.btnStatistic.Text = "   Statistika";
             this.btnStatistic.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnOrders
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(12, 65);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(188, 30);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Müştərilər";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            this.btnOrders.FlatAppearance.BorderSize = 2;
+            this.btnOrders.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrders.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnOrders.Image = global::LibManagement.Properties.Resources.order_25px;
+            this.btnOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrders.Location = new System.Drawing.Point(4, 177);
+            this.btnOrders.Name = "btnOrders";
+            this.btnOrders.Size = new System.Drawing.Size(202, 50);
+            this.btnOrders.TabIndex = 3;
+            this.btnOrders.Text = "   Sifarişlər";
+            this.btnOrders.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnBooks
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(12, 245);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(188, 30);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Çıxış";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button5_Click);
+            this.btnBooks.FlatAppearance.BorderSize = 2;
+            this.btnBooks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBooks.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnBooks.Image = global::LibManagement.Properties.Resources.book_25px2;
+            this.btnBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBooks.Location = new System.Drawing.Point(4, 121);
+            this.btnBooks.Name = "btnBooks";
+            this.btnBooks.Size = new System.Drawing.Size(202, 50);
+            this.btnBooks.TabIndex = 2;
+            this.btnBooks.Text = "   Kitablar";
+            this.btnBooks.UseVisualStyleBackColor = true;
+            this.btnBooks.Click += new System.EventHandler(this.BtnBooks_Click);
             // 
-            // button6
+            // btnCustomers
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(12, 155);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(188, 30);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Sifarişlər";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            this.btnCustomers.FlatAppearance.BorderSize = 2;
+            this.btnCustomers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCustomers.Image = global::LibManagement.Properties.Resources.customers_25px;
+            this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomers.Location = new System.Drawing.Point(4, 65);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(202, 50);
+            this.btnCustomers.TabIndex = 1;
+            this.btnCustomers.Text = "    Müştərilər";
+            this.btnCustomers.UseVisualStyleBackColor = true;
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.FlatAppearance.BorderSize = 2;
+            this.btnUsers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnUsers.Image = global::LibManagement.Properties.Resources.user_25px2;
+            this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsers.Location = new System.Drawing.Point(4, 9);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.Size = new System.Drawing.Size(202, 50);
+            this.btnUsers.TabIndex = 0;
+            this.btnUsers.Text = "    İstifadəçilər";
+            this.btnUsers.UseVisualStyleBackColor = true;
+            this.btnUsers.Click += new System.EventHandler(this.BtnUsers_Click);
             // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(214, 290);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.btnStatistic);
-            this.Controls.Add(this.btnUsers);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(211, 290);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "İdarəetmə paneli";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnUsers;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnStatistic;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnOrders;
+        private System.Windows.Forms.Button btnBooks;
+        private System.Windows.Forms.Button btnCustomers;
+        private System.Windows.Forms.Button btnUsers;
     }
 }

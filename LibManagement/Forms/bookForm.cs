@@ -21,6 +21,7 @@ namespace LibManagement.Forms
         private Book _selectedBook;
         private int rentPercent = 1;
         private User _enteredUser;
+        private string _isPassiv;
         public bookForm(User user)
         {
             InitializeComponent();
@@ -34,16 +35,25 @@ namespace LibManagement.Forms
 
         #region Fill
       
-        public void FillDataView()
+        public void FillDataView()  // Fill Datagridview
         {
             
             foreach(var item in _bookService.AllBook())
             {
-                dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece, item.InLibrary, item.InOrder );
+                if(item.isPassiv == true)
+                {
+                    _isPassiv = "PASSiV";
+                }
+                else
+                {
+                    _isPassiv = "AKTiV";
+                }
+                dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, _isPassiv, item.TotalPiece, item.InLibrary, item.InOrder );
             }
         }
 
-        public void FillComboJanre()
+
+        public void FillComboJanre() // Fill Combobox "Janres"
         {
             cmbJanres.Items.Add(new ComboItem(0, "Hamısı"));
             cmbJanres.SelectedIndex = 0;
@@ -53,7 +63,7 @@ namespace LibManagement.Forms
             }
         }
 
-        public void FillComboJAnreForChanged()
+        public void FillComboJAnreForChanged() // Fill Combobox "Janres" for Changing item property
         {
             cmbJanresForChanging.Items.Add(new ComboItem(0, "seçilməyib"));
             cmbJanresForChanging.SelectedIndex = 0;
@@ -63,17 +73,26 @@ namespace LibManagement.Forms
             }
         }
 
-        
+
 
         #endregion;
+
+        #region Calculate RentPrice
+        private void NumPrice_ValueChanged(object sender, EventArgs e) //Calculate and Show Rent Price by percent (1%)
+        {
+            decimal RentPrice = (Convert.ToDecimal(NumPrice.Value) * rentPercent) / 100;
+            lblPrice.Text = RentPrice.ToString();
+        }
+        #endregion
 
         #region Reset
 
         public void Reset()
         {
             btnAdd.Hide();
-            btnPassiv.Hide();
+            btnUnlock.Hide();
             btnUpdate.Hide();
+            btnLock.Hide();
             cmbJanresForChanging.SelectedIndex = -1;
             txtAuthor.Clear();
             txtName.Clear();
@@ -86,15 +105,23 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region ChangingElements
+        #region View Data by Changing Elements
 
-        public void ChangingJanres()
+        public void ChangingJanres()  // METHOD View items when changing combobox JANRES
         {
             if (cmbJanres.SelectedIndex != 0)
             {
                 foreach (var item in _bookService.AllBookById((cmbJanres.SelectedItem as ComboItem).Id))
                 {
-                    dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, item.TotalPiece, item.InLibrary, item.InOrder);
+                    if (item.isPassiv == true)
+                    {
+                        _isPassiv = "PASSiV";
+                    }
+                    else
+                    {
+                        _isPassiv = "AKTiV";
+                    }
+                    dataGridView1.Rows.Add(item.BookId, item.Name, item.janre.Name, _isPassiv, item.TotalPiece, item.InLibrary, item.InOrder);
                 }
             }
             else
@@ -104,14 +131,14 @@ namespace LibManagement.Forms
         }
         #endregion
 
-        private void CmbJanres_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbJanres_SelectedIndexChanged(object sender, EventArgs e) // View items when changing combobox JANRES
         {
             Reset();
             dataGridView1.Rows.Clear();
             ChangingJanres();
         }
 
-        private void TxtName_TextChanged(object sender, EventArgs e)
+        private void TxtName_TextChanged(object sender, EventArgs e) 
         {
             if (!string.IsNullOrEmpty(txtName.Text))
             {
@@ -123,7 +150,7 @@ namespace LibManagement.Forms
             }
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e) // ADD NEW item (book)
         {
             if (cmbJanresForChanging.SelectedIndex == 0)
                 
@@ -157,19 +184,34 @@ namespace LibManagement.Forms
                 InLibrary = Convert.ToInt32(numPiece.Value),
 
             };
-
+            if (book.TotalPiece > 0)
+            {
+                book.isPassiv = false;
+            }
+            else
+            {
+                book.isPassiv = true;
+            }
             
             _bookService.Add(book);
             
             MessageBox.Show(book.Name + " adlı kitab bazaya daxil edildi!!!");
-            dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece, book.InLibrary, book.InOrder);
+            if(book.TotalPiece > 0)
+            {
+                dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, "AKTiV", book.TotalPiece, book.InLibrary, book.InOrder);
+            }
+            else
+            {
+                dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, "PASSiV", book.TotalPiece, book.InLibrary, book.InOrder);
+            }
             Reset();
             
 
         }
 
-        private void DataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) // SELECT BOOK by Double-Click to row header
         {
+            Reset();
             _selectedIndex = e.RowIndex;
             _selectedBook = _bookService.Find(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value));
 
@@ -180,12 +222,16 @@ namespace LibManagement.Forms
             NumPrice.Value = _selectedBook.SalePrice;
             lblPrice.Text = _selectedBook.RentPrice.ToString("0.0");
             btnAdd.Hide();
-            btnPassiv.Show();
+            if (_selectedBook.isPassiv == true)
+            {
+                btnUnlock.Show();
+            }
+            btnLock.Show();            
             btnUpdate.Show();
 
-        }
+        }  
 
-        private void TxtBookSearch_TextChanged(object sender, EventArgs e)
+        private void TxtBookSearch_TextChanged(object sender, EventArgs e) // SEARCH BOOK by NAME of BOOK
         {
             dataGridView1.Rows.Clear();
             if (!string.IsNullOrEmpty(txtBookSearch.Text))
@@ -196,7 +242,15 @@ namespace LibManagement.Forms
                 {
                     if (book.Name.ToLower().Contains(txtBookSearch.Text.ToLower()))
                     {
-                        dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, book.TotalPiece, book.InLibrary, book.InOrder);
+                        if (book.isPassiv == true)
+                        {
+                            _isPassiv = "PASSiV";
+                        }
+                        else
+                        {
+                            _isPassiv = "AKTiV";
+                        }
+                        dataGridView1.Rows.Add(book.BookId, book.Name, book.janre.Name, _isPassiv, book.TotalPiece, book.InLibrary, book.InOrder);
                     }
                 }
             }
@@ -207,8 +261,8 @@ namespace LibManagement.Forms
 
         }
 
-      
 
+        #region Update Book
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             if(string.IsNullOrEmpty(txtName.Text) || cmbJanresForChanging.SelectedIndex == 0)
@@ -228,25 +282,16 @@ namespace LibManagement.Forms
             MessageBox.Show("Məlumat yeniləndi !!!");
             dataGridView1.Rows[_selectedIndex].Cells[1].Value = txtName.Text;
             dataGridView1.Rows[_selectedIndex].Cells[2].Value = (cmbJanresForChanging.SelectedItem as ComboItem).Value;
-            dataGridView1.Rows[_selectedIndex].Cells[3].Value = numPiece.Value;
-            dataGridView1.Rows[_selectedIndex].Cells[4].Value = _selectedBook.InLibrary.ToString();
+            
+            dataGridView1.Rows[_selectedIndex].Cells[4].Value = numPiece.Value;
+            dataGridView1.Rows[_selectedIndex].Cells[5].Value = _selectedBook.InLibrary.ToString();
             Reset();
 
         }
 
-        private void NumPrice_ValueChanged(object sender, EventArgs e)
-        {
-            decimal RentPrice = (Convert.ToDecimal(NumPrice.Value) * rentPercent) / 100;
-            lblPrice.Text = RentPrice.ToString();
-        }
+        #endregion
 
-        private void BtnDashboard_Click(object sender, EventArgs e)
-        {
-            dashboard dashboard = new dashboard(_enteredUser);
-            dashboard.Show();
-            this.Hide();
-        }
-
+        #region Lock Book
         private void BtnPassiv_Click(object sender, EventArgs e)
         {
             if (_selectedBook.InOrder > 0)
@@ -256,21 +301,56 @@ namespace LibManagement.Forms
             }
             else
             {
-                DialogResult r = MessageBox.Show("Əminsinizmi?", _selectedBook.Name, MessageBoxButtons.YesNo);
+                DialogResult r = MessageBox.Show("Passiv edilsin?", _selectedBook.Name, MessageBoxButtons.YesNo);
 
                 if (r == DialogResult.Yes)
                 {
                     _selectedBook.TotalPiece = 0;
                     _selectedBook.InLibrary = 0;
                     _selectedBook.InOrder = 0;
+                    _selectedBook.isPassiv = true;
                     _bookService.Update(_selectedBook);
                     Reset();
-                    dataGridView1.Rows[_selectedIndex].Cells[3].Value = "0";
+                    dataGridView1.Rows[_selectedIndex].Cells[3].Value = "PASSIV";
                     dataGridView1.Rows[_selectedIndex].Cells[4].Value = "0";
                     dataGridView1.Rows[_selectedIndex].Cells[5].Value = "0";
+                    dataGridView1.Rows[_selectedIndex].Cells[6].Value = "0";
                 }
             }
             
         }
+
+        #endregion
+
+        #region Unlock Book
+
+        private void BtnUnlock_Click(object sender, EventArgs e) //Unlock book
+        {
+            DialogResult r = MessageBox.Show("Aktivləşdirilsin?", _selectedBook.Name, MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                _selectedBook.isPassiv = false;
+                _bookService.Update(_selectedBook);
+                MessageBox.Show(_selectedBook.Name + " aktivləşdirildi!!!");
+                dataGridView1.Rows[_selectedIndex].Cells[3].Value = "AKTIV";
+                Reset();
+            }
+        }
+
+        #endregion
+
+        #region Go-Back-Dashboard
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+            this.Hide();
+        }
+
+        #endregion
+
+
+       
     }
 }

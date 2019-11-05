@@ -27,7 +27,8 @@ namespace LibManagement.Forms
             {
                 btnUsers.Enabled = false;
                 btnStatistic.Enabled = false;
-              
+                btnUsers.BackColor = Color.Gray;
+                btnStatistic.BackColor = Color.Gray;
             }
         }
        
@@ -51,12 +52,7 @@ namespace LibManagement.Forms
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            bookForm bookForm = new bookForm(_enteredUser);
-            bookForm.Text = bookForm.Text + " --- " + this._enteredUser.FullName;
-            bookForm.ShowDialog();
-        }
+        
 
         private void Button4_Click(object sender, EventArgs e)
         {
@@ -65,12 +61,7 @@ namespace LibManagement.Forms
             customerForm.ShowDialog();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            UserForm userForm = new UserForm(this._enteredUser);
-            userForm.Text = userForm.Text + " --- " + this._enteredUser.FullName;
-            userForm.ShowDialog();
-        }
+        
 
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -82,6 +73,20 @@ namespace LibManagement.Forms
             OrderForm orderForm = new OrderForm(this._enteredUser);
             orderForm.Text = orderForm.Text +  " --- "  +  this._enteredUser.FullName;
             orderForm.ShowDialog();
+        }
+
+        private void BtnUsers_Click(object sender, EventArgs e) //Go To User Form
+        {
+            UserForm userForm = new UserForm(this._enteredUser);
+            userForm.Text = userForm.Text + " --- " + this._enteredUser.FullName;
+            userForm.ShowDialog();
+        }
+
+        private void BtnBooks_Click(object sender, EventArgs e)  //Go To Book Form
+        {
+            bookForm bookForm = new bookForm(_enteredUser);
+            bookForm.Text = bookForm.Text + " --- " + this._enteredUser.FullName;
+            bookForm.ShowDialog();
         }
     }
 }

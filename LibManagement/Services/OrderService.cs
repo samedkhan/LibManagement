@@ -54,12 +54,12 @@ namespace LibManagement.Services
 
         public decimal CalculateCashPayment()
         {
-            return _context.Orders.Where(o=>o.Status!=true).Sum(o => o.TotalPrice);
+            return _context.Orders.Where(o => o.Status != true).Sum(o => o.TotalPrice);
         }
 
         public bool CheckOrderStatus()
         {
-            return _context.Orders.Any(o=>o.Status!=true);
+            return _context.Orders.Any(o => o.Status != true);
         }
     }
 }

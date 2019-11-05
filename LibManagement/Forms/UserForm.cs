@@ -18,20 +18,20 @@ namespace LibManagement.Forms
     {
         private readonly UserService _userService;
         private string Admin;
+        private string Status;
         private User _selectedUser;
         private int _selectedIndex;
         public User _enteredUser;
-        
-        
         public UserForm(User user)
         {
+            
+            InitializeComponent();
             this._enteredUser = user;
             _userService = new UserService();
-            InitializeComponent();
             FillDgv();
         }
 
-        #region Fill
+        #region Fill Datagridview
 
         public void FillDgv()
         {
@@ -43,9 +43,19 @@ namespace LibManagement.Forms
                 }
                 else
                 {
-                    Admin = "İstifadəçi";
+                    Admin = "Menecer";
                 }
-                dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, Admin);
+                if (item.IsPassiv == true)
+                {
+                    Status = "PASSİV";
+
+                }
+                else
+                {
+                    Status = "AKTİV";
+                }
+
+                dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, Admin, Status);
             }
         }
 
@@ -63,6 +73,7 @@ namespace LibManagement.Forms
             btnPassiv.Hide();
             btnUpdate.Hide();
             btnAdd.Show();
+            btnUnlock.Hide();
         }
 
         #endregion
@@ -79,7 +90,8 @@ namespace LibManagement.Forms
 
         #endregion
 
-        private void ChkUser_CheckedChanged(object sender, EventArgs e)
+        #region Selectable-Search 
+        private void ChkUser_CheckedChanged(object sender, EventArgs e) // Show only USER Managers
         {
             if (chkUser.Checked)
             {
@@ -87,10 +99,19 @@ namespace LibManagement.Forms
                 dgvUsers.Rows.Clear();
                 foreach (var item in _userService.GetAllUsers())
                 {
+                    if (item.IsPassiv == true)
+                    {
+                        Status = "PASSİV";
+
+                    }
+                    else
+                    {
+                        Status = "AKTİV";
+                    }
 
                     if (item.IsAdmin != true)
                     {
-                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "İstifadəçi");
+                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Menecer", Status);
                     }
                 }
             }
@@ -101,7 +122,7 @@ namespace LibManagement.Forms
             }
         }
 
-        private void ChkAdmin_CheckedChanged(object sender, EventArgs e)
+        private void ChkAdmin_CheckedChanged(object sender, EventArgs e) //Show only ADMIN Managers
         {
             if (chkAdmin.Checked)
             {
@@ -109,10 +130,18 @@ namespace LibManagement.Forms
                 dgvUsers.Rows.Clear();
                 foreach (var item in _userService.GetAllUsers())
                 {
+                    if (item.IsPassiv == true)
+                    {
+                        Status = "PASSİV";
 
+                    }
+                    else
+                    {
+                        Status = "AKTİV";
+                    }
                     if (item.IsAdmin == true)
                     {
-                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Administrator");
+                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Administrator", Status);
                     }
                 }
             }
@@ -123,7 +152,11 @@ namespace LibManagement.Forms
             }
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Add-New-User
+
+        private void BtnAdd_Click(object sender, EventArgs e) // ADD NEW USER
         {
             if ((string.IsNullOrEmpty(txtFullName.Text) || string.IsNullOrEmpty(txtLogin.Text) || string.IsNullOrEmpty(txtPassword.Text)) || (chkUser.Checked != true && chkAdmin.Checked != true))
             {
@@ -144,7 +177,7 @@ namespace LibManagement.Forms
                 Username = txtLogin.Text,
                 Password = MD5Hash(txtPassword.Text),
                 CreaterId = _enteredUser.UserId,
-                
+
             };
             if (chkAdmin.Checked)
             {
@@ -157,57 +190,18 @@ namespace LibManagement.Forms
 
             _userService.Add(user);
             MessageBox.Show(user.FullName + " bazaya daxil edildi!!!");
-            
+
             Reset();
 
         }
 
-        private void BtnPassiv_Click(object sender, EventArgs e)
-        {
+        #endregion
 
-            DialogResult r = MessageBox.Show("Əminsinizmi?", _selectedUser.FullName, MessageBoxButtons.YesNo);
-
-            if (r == DialogResult.Yes)
-            {
-                _selectedUser.IsPassiv = true;
-                _userService.Update(_selectedUser);
-                Reset();
-            }
-
-        }
-
-        private void DgvUsers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            _selectedUser = _userService.Find(Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells[0].Value));
-            _selectedIndex = e.RowIndex;
-            txtFullName.Text = _selectedUser.FullName;
-            txtLogin.Text = _selectedUser.Username;
-            txtPassword.Text = _selectedUser.Password;
-
-            if (_selectedUser.IsAdmin == true)
-            {
-                chkAdmin.Checked = true;
-            }
-            else
-            {
-                chkUser.Checked = true;
-            }
-
-            btnPassiv.Show();
-            btnUpdate.Show();
-            btnAdd.Hide();
-        }
-
-        private void BtnDashboard_Click(object sender, EventArgs e)
-        {
-            dashboard dashboard = new dashboard(_enteredUser);
-            dashboard.Show();
-            this.Hide();
-        }
+        #region Update-User
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtLogin.Text) || string.IsNullOrEmpty(txtFullName.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            if (string.IsNullOrEmpty(txtLogin.Text) || string.IsNullOrEmpty(txtFullName.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
                 MessageBox.Show("Boşluqları doldurun!!!");
                 return;
@@ -233,5 +227,78 @@ namespace LibManagement.Forms
             MessageBox.Show("Məlumatlar yeniləndi!!!");
             Reset();
         }
+
+        #endregion
+
+        #region Lock-User
+
+        private void BtnPassiv_Click(object sender, EventArgs e) // Lock User
+        {
+
+            DialogResult r = MessageBox.Show("Passiv edilsin?", _selectedUser.FullName, MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                _selectedUser.IsPassiv = true;
+                _userService.Update(_selectedUser);
+                MessageBox.Show(_selectedUser.FullName + " passiv edildi!!!");
+                dgvUsers.Rows[_selectedIndex].Cells[5].Value = "PASSİV";
+                Reset();
+            }
+
+        }
+
+        #endregion
+
+        #region Select-User-In-DatagridView
+
+        private void DgvUsers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Reset();
+            _selectedUser = _userService.Find(Convert.ToInt32(dgvUsers.Rows[e.RowIndex].Cells[0].Value));
+            _selectedIndex = e.RowIndex;
+            txtFullName.Text = _selectedUser.FullName;
+            txtLogin.Text = _selectedUser.Username;
+            txtPassword.Text = _selectedUser.Password;
+
+            if (_selectedUser.IsPassiv == true)
+            {
+                btnUnlock.Show();
+            }
+            btnPassiv.Show();
+            btnUpdate.Show();
+            btnAdd.Hide();
+        }
+
+
+        #endregion
+
+        #region Unlock User
+        private void BtnUnlock_Click(object sender, EventArgs e) //Unlock user
+        {
+            DialogResult r = MessageBox.Show("Aktivləşdirilsin?", _selectedUser.FullName, MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                _selectedUser.IsPassiv = false;
+                _userService.Update(_selectedUser);
+                MessageBox.Show(_selectedUser.FullName + " aktivləşdirildi!!!");
+                dgvUsers.Rows[_selectedIndex].Cells[5].Value = "AKTIV";
+                Reset();
+            }
+        }
+
+        #endregion
+
+        #region Go-Back-Dashboard
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+            this.Hide();
+        }
+
+        #endregion
     }
 }
+

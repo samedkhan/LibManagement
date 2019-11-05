@@ -5,7 +5,6 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramewor
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramework.xml
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csprojAssemblyReference.cache
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Properties.Resources.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csproj.GenerateResource.cache
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csproj.CoreCompileInputs.cache
@@ -30,3 +29,5 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookPropertyADdedInLibrary.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedUserClassPropertyAddedCraterId.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.UserAndCustomerClassesAddedPropertyISPASSIV.resources
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csprojAssemblyReference.cache
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedPropertyBookAddedIsPassivproperty.resources

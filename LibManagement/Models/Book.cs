@@ -34,6 +34,8 @@ namespace LibManagement.Models
         [Column(TypeName = "money")]
         public decimal RentPrice { get; set; }
 
+        [Column(TypeName = "bit")]
+        public bool isPassiv { get; set; }
 
         public int JanreId { get; set; }
 

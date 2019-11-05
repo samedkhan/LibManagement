@@ -25,7 +25,7 @@ namespace LibManagement.Forms
         private int _selectedIndex;
         public OrderForm(User user)
         {
-            
+
             InitializeComponent();
             this._enteredUser = user;
             _bookService = new BookService();
@@ -50,10 +50,10 @@ namespace LibManagement.Forms
 
         public void FillDgv()
         {
-           
-            foreach(var item in _orderService.GetAllOrders())
+
+            foreach (var item in _orderService.GetAllOrders())
             {
-                
+
                 if (item.Status == true)
                 {
                     Status = "AÇIQ";
@@ -62,7 +62,7 @@ namespace LibManagement.Forms
                 {
                     Status = "TAMAMLANIB";
                 }
-               
+
 
                 dgvOrders.Rows.Add(item.OrderId,
                                     item.customer.FullName,
@@ -78,7 +78,7 @@ namespace LibManagement.Forms
 
         public void FillCmbCustomer()
         {
-            foreach(var item in _customerService.AllCustomers())
+            foreach (var item in _customerService.AllCustomers())
             {
                 cmbCustomers.Items.Add(new ComboItem(item.CustomerId, item.FullName));
             }
@@ -86,9 +86,9 @@ namespace LibManagement.Forms
 
         public void FillCmbBook()
         {
-            foreach(var item in _bookService.AllBook())
+            foreach (var item in _bookService.AllBook())
             {
-                if(item.InLibrary > 0)
+                if (item.InLibrary > 0)
                 {
                     cmbBook.Items.Add(new ComboItem(item.BookId, item.Name));
                 }
@@ -123,11 +123,9 @@ namespace LibManagement.Forms
             {
                 if (_orderService.CheckOrderStatus())
                 {
-                    lblKassa.Text = _orderService.CalculateCashPayment().ToString("0.00" + " AZN"); // Calculate Cash Payment
+                    lblKassa.Text = _orderService.CalculateCashPayment().ToString("0.00") + "AZN"; // Calculate Cash Payment
                 }
-
-                lblTotal.Text = _orderService.CalculateTotalPay().ToString("0.00" + " AZN"); // Calculate Total Price
-
+                lblTotal.Text = _orderService.CalculateTotalPay().ToString("0.00") + "AZN"; // Calculate Total Price
             }
         }
 
@@ -151,7 +149,6 @@ namespace LibManagement.Forms
 
         #endregion
 
-
         private void ChkClosed_CheckedChanged(object sender, EventArgs e) // SHOW by CLOSED STATUS
         {
 
@@ -162,7 +159,7 @@ namespace LibManagement.Forms
                 foreach (Order item in _orderService.GetAllOrders())
                 {
 
-                    if (item.Status==false)
+                    if (item.Status == false)
                     {
                         dgvOrders.Rows.Add(item.OrderId,
                                     item.customer.FullName,
@@ -215,16 +212,16 @@ namespace LibManagement.Forms
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-           
+
             if (cmbBook.SelectedIndex == -1 || cmbCustomers.SelectedIndex == -1 || dtpDeadline.Value <= DateTime.Now)
             {
                 MessageBox.Show("Məlumatları düzgün daxil edin!!!");
                 return;
             }
 
-            foreach(Order item in _orderService.GetAllOrders())
+            foreach (Order item in _orderService.GetAllOrders())
             {
-                if(item.customer.FullName.Contains((cmbCustomers.SelectedItem as ComboItem).Value)
+                if (item.customer.FullName.Contains((cmbCustomers.SelectedItem as ComboItem).Value)
                     && item.book.Name.Contains((cmbBook.SelectedItem as ComboItem).Value))
                 {
                     MessageBox.Show("Bu sifariş bazada mövcuddur!!!");
@@ -273,7 +270,7 @@ namespace LibManagement.Forms
             FillDgv();
             Reset();
 
-           
+
         }
 
         private void DgvOrders_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -290,9 +287,9 @@ namespace LibManagement.Forms
 
             dtpDeadline.Value = _selectedOrder.Deadline;
 
-            
 
-            if(_selectedOrder.Status == true) // Change or Delete order
+
+            if (_selectedOrder.Status == true) // Change or Delete order
             {
                 int daysDiff = ((TimeSpan)(DateTime.Today - _selectedOrder.CreatedAt)).Days;
                 if (daysDiff < 1)
@@ -309,9 +306,9 @@ namespace LibManagement.Forms
                     btnAdd.Hide();
                     btnClose.Show();
                 }
-               
+
             }
-            
+
 
 
 
@@ -319,11 +316,11 @@ namespace LibManagement.Forms
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-           DialogResult r =  MessageBox.Show("Əminsinizmi?", _selectedOrder.book.Name, MessageBoxButtons.YesNo);
+            DialogResult r = MessageBox.Show("Əminsinizmi?", _selectedOrder.book.Name, MessageBoxButtons.YesNo);
 
             if (r == DialogResult.Yes)
             {
-                
+
 
                 _selectedOrder.book.InLibrary++;
                 _selectedOrder.book.InOrder--;
@@ -378,7 +375,7 @@ namespace LibManagement.Forms
             {
                 if (item.customer.FullName.ToLower().Contains(txtCustomer.Text.ToLower()) && item.Status == true)
                 {
-             
+
                     dgvOrders.Rows.Add(item.OrderId,
                                         item.customer.FullName,
                                         item.book.Name,
@@ -390,7 +387,7 @@ namespace LibManagement.Forms
                                         "AÇIQ");
                 }
 
-               
+
             }
         }
     }

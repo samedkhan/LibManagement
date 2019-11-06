@@ -54,12 +54,7 @@ namespace LibManagement.Forms
 
         
 
-        private void Button4_Click(object sender, EventArgs e)
-        {
-            CustomerForm customerForm = new CustomerForm(_enteredUser);
-            customerForm.Text = customerForm.Text + " --- " + this._enteredUser.FullName;
-            customerForm.ShowDialog();
-        }
+       
 
         
 
@@ -77,16 +72,27 @@ namespace LibManagement.Forms
 
         private void BtnUsers_Click(object sender, EventArgs e) //Go To User Form
         {
+            this.Hide();
             UserForm userForm = new UserForm(this._enteredUser);
             userForm.Text = userForm.Text + " --- " + this._enteredUser.FullName;
             userForm.ShowDialog();
+           
         }
 
         private void BtnBooks_Click(object sender, EventArgs e)  //Go To Book Form
         {
+            this.Hide();
             bookForm bookForm = new bookForm(_enteredUser);
             bookForm.Text = bookForm.Text + " --- " + this._enteredUser.FullName;
             bookForm.ShowDialog();
+        }
+
+        private void BtnCustomers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CustomerForm customerForm = new CustomerForm(_enteredUser);
+            customerForm.Text = customerForm.Text + " --- " + this._enteredUser.FullName;
+            customerForm.ShowDialog();
         }
     }
 }

@@ -343,9 +343,10 @@ namespace LibManagement.Forms
         #region Go-Back-Dashboard
         private void BtnBack_Click(object sender, EventArgs e)
         {
+            this.Hide();
             dashboard dashboard = new dashboard(_enteredUser);
             dashboard.Show();
-            this.Hide();
+            
         }
 
         #endregion

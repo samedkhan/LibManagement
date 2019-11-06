@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201911051732071_ChangedPropertyBookAddedIsPassivproperty.designer.cs">
       <DependentUpon>201911051732071_ChangedPropertyBookAddedIsPassivproperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911060601197_AddedCreatedATperopertyCustomerModel.cs" />
+    <Compile Include="Migrations\201911060601197_AddedCreatedATperopertyCustomerModel.designer.cs">
+      <DependentUpon>201911060601197_AddedCreatedATperopertyCustomerModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -215,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911051732071_ChangedPropertyBookAddedIsPassivproperty.resx">
       <DependentUpon>201911051732071_ChangedPropertyBookAddedIsPassivproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911060601197_AddedCreatedATperopertyCustomerModel.resx">
+      <DependentUpon>201911060601197_AddedCreatedATperopertyCustomerModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

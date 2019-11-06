@@ -25,6 +25,9 @@ namespace LibManagement.Models
         [Column(TypeName = "bit")]
         public bool IsPassiv { get; set; }
 
+        [Column(TypeName ="date")]
+        public DateTime CreatedAt { get; set; }
+        
         public List<Order> orders { get; set; }
     }
 }

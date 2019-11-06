@@ -50,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(211, 290);
+            this.panel1.Size = new System.Drawing.Size(211, 346);
             this.panel1.TabIndex = 4;
             // 
             // btnLogout
@@ -132,6 +132,7 @@
             this.btnCustomers.TabIndex = 1;
             this.btnCustomers.Text = "    Müştərilər";
             this.btnCustomers.UseVisualStyleBackColor = true;
+            this.btnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
             // btnUsers
             // 
@@ -154,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(211, 290);
+            this.ClientSize = new System.Drawing.Size(211, 346);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

@@ -170,6 +170,8 @@ namespace LibManagement.Forms
                                     item.FineForLate.ToString("0.0" + " AZN"),
                                     item.user.FullName,
                                     "TAMAMLANIB");
+
+
                     }
                 }
             }
@@ -266,11 +268,9 @@ namespace LibManagement.Forms
             //                       "AÇIQ");
 
             dgvOrders.Rows.Clear();
-            CalculatePayments();
             FillDgv();
+            CalculatePayments();
             Reset();
-
-
         }
 
         private void DgvOrders_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

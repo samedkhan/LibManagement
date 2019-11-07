@@ -63,12 +63,7 @@ namespace LibManagement.Forms
             Application.Exit();
         }
 
-        private void Button6_Click(object sender, EventArgs e)
-        {
-            OrderForm orderForm = new OrderForm(this._enteredUser);
-            orderForm.Text = orderForm.Text +  " --- "  +  this._enteredUser.FullName;
-            orderForm.ShowDialog();
-        }
+        
 
         private void BtnUsers_Click(object sender, EventArgs e) //Go To User Form
         {
@@ -93,6 +88,14 @@ namespace LibManagement.Forms
             CustomerForm customerForm = new CustomerForm(_enteredUser);
             customerForm.Text = customerForm.Text + " --- " + this._enteredUser.FullName;
             customerForm.ShowDialog();
+        }
+
+        private void BtnOrders_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            OrdersForm orderForm = new OrdersForm(this._enteredUser);
+            orderForm.Text = orderForm.Text + " --- " + this._enteredUser.FullName;
+            orderForm.ShowDialog();
         }
     }
 }

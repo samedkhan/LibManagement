@@ -99,6 +99,7 @@
             this.btnOrders.TabIndex = 3;
             this.btnOrders.Text = "   Sifarişlər";
             this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.BtnOrders_Click);
             // 
             // btnBooks
             // 

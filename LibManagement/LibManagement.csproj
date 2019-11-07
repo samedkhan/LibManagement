@@ -81,6 +81,18 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewOrderForm.Designer.cs">
+      <DependentUpon>NewOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrdersForm.Designer.cs">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewOrderForm.resx">
+      <DependentUpon>NewOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrdersForm.resx">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
@@ -306,6 +324,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\book-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-search-25px.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-40px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order-add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-order-40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\done-41px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

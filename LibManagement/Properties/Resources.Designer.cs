@@ -63,6 +63,16 @@ namespace LibManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_order_40px {
+            get {
+                object obj = ResourceManager.GetObject("add-order-40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back_arrow_40px {
             get {
                 object obj = ResourceManager.GetObject("back-arrow-40px", resourceCulture);
@@ -123,6 +133,16 @@ namespace LibManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap book_search_25px {
+            get {
+                object obj = ResourceManager.GetObject("book-search-25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap book1_25px {
             get {
                 object obj = ResourceManager.GetObject("book1-25px", resourceCulture);
@@ -146,6 +166,16 @@ namespace LibManagement.Properties {
         internal static System.Drawing.Bitmap customers_25px {
             get {
                 object obj = ResourceManager.GetObject("customers-25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap done_41px {
+            get {
+                object obj = ResourceManager.GetObject("done-41px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +213,49 @@ namespace LibManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap order_add {
+            get {
+                object obj = ResourceManager.GetObject("order-add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap order_add1 {
+            get {
+                object obj = ResourceManager.GetObject("order-add1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_25px {
             get {
                 object obj = ResourceManager.GetObject("refresh-25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove_40px {
+            get {
+                object obj = ResourceManager.GetObject("remove-40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove_40px1 {
+            get {
+                object obj = ResourceManager.GetObject("remove-40px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

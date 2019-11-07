@@ -118,32 +118,62 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="user-25px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-25px2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="book-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="customers-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\customers-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="book1-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book1-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="remove-40px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\remove-40px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back-arrow-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back-arrow-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-order-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-order-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="unlock-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\unlock-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="block-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\block-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="update-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="book-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="order-add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\order-add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lock-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="book-25px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-25px2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="remove-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\remove-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="customers-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customers-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="statistic-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\statistic-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search-user-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search-user-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="order-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\order-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="order-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\order-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book-25px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book-25px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user-25px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-25px2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unlock-user-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unlock-user-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="create-user-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\create-user-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,34 +181,25 @@
   <data name="user-25px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-25px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="unlock-user-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\unlock-user-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book-25px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book-25px2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book-search-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book-search-25px.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\book-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logout-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="book1-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book1-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="block-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\block-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="book-25px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-25px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="order-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\order-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search-user-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search-user-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back-arrow-40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back-arrow-40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh-25px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh-25px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="book-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\book-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="done-41px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\done-41px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

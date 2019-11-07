@@ -346,7 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 418);
+            this.ClientSize = new System.Drawing.Size(1125, 449);
             this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.txtCustomer);
             this.Controls.Add(this.btnDashboard);

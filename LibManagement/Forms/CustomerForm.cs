@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibManagement.Services;
 using LibManagement.Models;
@@ -200,8 +193,6 @@ namespace LibManagement.Forms
         }
 
         #endregion
-
-     
 
         #region Go-Back-Dashboard
         private void BtnBack_Click(object sender, EventArgs e)

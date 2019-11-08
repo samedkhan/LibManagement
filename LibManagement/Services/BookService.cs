@@ -67,5 +67,10 @@ namespace LibManagement.Services
         {
             return _context.Books.Where(b => b.Name.Contains(name)).FirstOrDefault();
         }
+
+        public int Sum()
+        {
+            return _context.Books.Sum(b => b.DigitForSum);
+        }
     }
 }

@@ -46,5 +46,10 @@ namespace LibManagement.Services
         {
             return _context.Customers.ToList();
         }
+
+        public int Sum()
+        {
+            return _context.Customers.Sum(c => c.DigitForSum);
+        }
     }
 }

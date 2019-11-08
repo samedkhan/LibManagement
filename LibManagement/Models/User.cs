@@ -33,6 +33,9 @@ namespace LibManagement.Models
         public string Password { get; set; }
 
 
+        public int DigitForSum { get; set; }
+
+
         public int CreaterId { get; set; }
 
         public List<Order> Orders { get; set; }

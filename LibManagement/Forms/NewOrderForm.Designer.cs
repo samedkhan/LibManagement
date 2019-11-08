@@ -51,6 +51,7 @@
             // 
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDeadline.Location = new System.Drawing.Point(9, 152);
+            this.dtpDeadline.MinDate = new System.DateTime(2019, 11, 8, 0, 0, 0, 0);
             this.dtpDeadline.Name = "dtpDeadline";
             this.dtpDeadline.Size = new System.Drawing.Size(259, 26);
             this.dtpDeadline.TabIndex = 10;
@@ -67,6 +68,7 @@
             // 
             // cmbBook
             // 
+            this.cmbBook.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBook.FormattingEnabled = true;
             this.cmbBook.Location = new System.Drawing.Point(9, 96);
@@ -86,6 +88,7 @@
             // 
             // cmbCustomers
             // 
+            this.cmbCustomers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCustomers.FormattingEnabled = true;
             this.cmbCustomers.Location = new System.Drawing.Point(9, 40);
@@ -110,6 +113,7 @@
             this.btnAdd.Text = "ƏLAVƏ ET";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // NewOrderForm
             // 

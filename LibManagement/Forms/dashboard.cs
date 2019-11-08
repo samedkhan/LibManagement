@@ -1,21 +1,24 @@
 ﻿using LibManagement.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibManagement.Services;
 
 namespace LibManagement.Forms
 {
     public partial class dashboard : Form
     {
         private User _enteredUser;
+        private BookService _bookService;
+        private CustomerService _customerService;
+        private OrderService _orderService;
+        private UserService _userService;
         public dashboard(User user)
         {
+            _bookService = new BookService();
+            _customerService = new CustomerService();
+            _orderService = new OrderService();
+            _userService = new UserService();
             this._enteredUser = user;
             InitializeComponent();
             CheckUSer();
@@ -30,6 +33,10 @@ namespace LibManagement.Forms
                 btnUsers.BackColor = Color.Gray;
                 btnStatistic.BackColor = Color.Gray;
             }
+            btnBooks.Text += "  - " + _bookService.Sum();
+            btnCustomers.Text += "  - " + _customerService.Sum();
+            btnOrders.Text += "  - " + _orderService.Sum();
+            btnUsers.Text += "  - " + _userService.Sum();
         }
        
         private void Button5_Click(object sender, EventArgs e)
@@ -96,6 +103,14 @@ namespace LibManagement.Forms
             OrdersForm orderForm = new OrdersForm(this._enteredUser);
             orderForm.Text = orderForm.Text + " --- " + this._enteredUser.FullName;
             orderForm.ShowDialog();
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            loginForm.FormClosed += (s, args) => this.Close();
         }
     }
 }

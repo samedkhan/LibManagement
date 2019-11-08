@@ -31,7 +31,7 @@ namespace LibManagement.Forms
             _userService = new UserService();
             _orderService = new OrderService();
             this._enteredUser = user;
-            CheckUser();
+           
             FillAllOrder();
             FillTodayRefunds();
             FillTomorrowRefunds();
@@ -40,18 +40,7 @@ namespace LibManagement.Forms
 
         }
 
-        #region Check User
-
-        public void CheckUser()
-        {
-            if(_enteredUser.IsAdmin == true)
-            {
-                tcOrders.TabPages.Add(new TabPage("tabStatistic").Text = "STATiSTiKA");
-
-            }
-        }
-
-        #endregion
+        
 
         #region Fill
 
@@ -196,7 +185,6 @@ namespace LibManagement.Forms
                 pctBook.Visible = false;
                 pctUser.Visible = false;
                 btnAdd.Visible = false;
-                btnUpdate.Visible = false;
                 btnDone.Visible = false;
                 btnDelete.Visible = false;
             }
@@ -268,7 +256,7 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region Go-Back-Dashboard  ---- ?????
+        #region Go-Back-Dashboard
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -286,7 +274,6 @@ namespace LibManagement.Forms
             btnAdd.Show();
             btnDone.Hide();
             btnDelete.Hide();
-            btnUpdate.Hide();
 
         }
 
@@ -377,14 +364,12 @@ namespace LibManagement.Forms
                 if (daysDiff < 1)
                 {
                     btnDelete.Show();
-                    btnUpdate.Show();
                     btnDone.Show();
                     btnAdd.Show();
                 }
                 else
                 {
                     btnDelete.Hide();
-                    btnUpdate.Show();
                     btnAdd.Hide();
                     btnDone.Show();
                     btnAdd.Show();
@@ -448,7 +433,10 @@ namespace LibManagement.Forms
 
             if (r == DialogResult.Yes)
             {
-                _orderService.Delete(_selectedOrder);
+                int id = _orderService.Delete(_selectedOrder);
+                _bookService.Find(id).InLibrary++;
+                _bookService.Find(id).InOrder--;
+                _bookService.Update(_bookService.Find(id));
                 MessageBox.Show("Sifariş silindi");
                 dgvAllOrders.Rows.RemoveAt(_selectedIndex);
                 Reset();
@@ -462,6 +450,9 @@ namespace LibManagement.Forms
         {
             _selectedOrder.Status = false;
             _orderService.Update(_selectedOrder);
+            _bookService.Find(_selectedOrder.BookId).InLibrary++;
+            _bookService.Find(_selectedOrder.BookId).InOrder--;
+            _bookService.Update(_bookService.Find(_selectedOrder.BookId));
             MessageBox.Show(_selectedOrder.customer.FullName + " " +
                                 _selectedOrder.book.Name + " " +
                                 " TAMAMLANDI");
@@ -478,10 +469,28 @@ namespace LibManagement.Forms
 
         #endregion
 
+        #region Order ADD
+        private void RefreshData(object sender,EventArgs e)
+        {
+            dgvAllOrders.Rows.Clear();
+            dgvTodayRefunds.Rows.Clear();
+            dgvTomorrowRefunds.Rows.Clear();
+            FillAllOrder();
+            FillTodayRefunds();
+            FillTomorrowRefunds();
+        }
+
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            NewOrderForm newOrderForm = new NewOrderForm();
+            NewOrderForm newOrderForm = new NewOrderForm(_enteredUser);
+            newOrderForm.DataAdded += new EventHandler(RefreshData);
             newOrderForm.ShowDialog();
+
         }
+        #endregion
+
+     
+
+      
     }
 }

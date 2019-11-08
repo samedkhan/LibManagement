@@ -36,6 +36,8 @@ namespace LibManagement.Models
         [Column(TypeName = "bit")]
         public bool Status { get; set; }
 
+        public int DigitForSum { get; set; }
+
         public int UserId { get; set; }
 
         public User user { get; set; }

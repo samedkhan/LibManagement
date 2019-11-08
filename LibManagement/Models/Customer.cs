@@ -27,7 +27,9 @@ namespace LibManagement.Models
 
         [Column(TypeName ="date")]
         public DateTime CreatedAt { get; set; }
-        
+
+        public int DigitForSum { get; set; }
+
         public List<Order> orders { get; set; }
     }
 }

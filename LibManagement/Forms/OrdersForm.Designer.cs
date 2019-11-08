@@ -81,7 +81,6 @@
             this.chkOpened = new System.Windows.Forms.CheckBox();
             this.btnDone = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.pctBook = new System.Windows.Forms.PictureBox();
             this.pctUser = new System.Windows.Forms.PictureBox();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -452,7 +451,7 @@
             // 
             this.lblCustomer.AutoSize = true;
             this.lblCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomer.Location = new System.Drawing.Point(85, 5);
+            this.lblCustomer.Location = new System.Drawing.Point(120, 5);
             this.lblCustomer.Name = "lblCustomer";
             this.lblCustomer.Size = new System.Drawing.Size(58, 16);
             this.lblCustomer.TabIndex = 73;
@@ -461,7 +460,7 @@
             // txtNameSearch
             // 
             this.txtNameSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameSearch.Location = new System.Drawing.Point(88, 30);
+            this.txtNameSearch.Location = new System.Drawing.Point(123, 30);
             this.txtNameSearch.Name = "txtNameSearch";
             this.txtNameSearch.Size = new System.Drawing.Size(201, 26);
             this.txtNameSearch.TabIndex = 72;
@@ -471,7 +470,7 @@
             // 
             this.LblBook.AutoSize = true;
             this.LblBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBook.Location = new System.Drawing.Point(324, 5);
+            this.LblBook.Location = new System.Drawing.Point(359, 5);
             this.LblBook.Name = "LblBook";
             this.LblBook.Size = new System.Drawing.Size(69, 16);
             this.LblBook.TabIndex = 76;
@@ -480,7 +479,7 @@
             // txtBookNameSearch
             // 
             this.txtBookNameSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBookNameSearch.Location = new System.Drawing.Point(327, 30);
+            this.txtBookNameSearch.Location = new System.Drawing.Point(362, 30);
             this.txtBookNameSearch.Name = "txtBookNameSearch";
             this.txtBookNameSearch.Size = new System.Drawing.Size(201, 26);
             this.txtBookNameSearch.TabIndex = 75;
@@ -519,7 +518,7 @@
             this.btnDone.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDone.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDone.Image = global::LibManagement.Properties.Resources.done_41px;
-            this.btnDone.Location = new System.Drawing.Point(713, 5);
+            this.btnDone.Location = new System.Drawing.Point(705, 5);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(65, 51);
             this.btnDone.TabIndex = 84;
@@ -538,7 +537,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Image = global::LibManagement.Properties.Resources.remove_40px1;
-            this.btnDelete.Location = new System.Drawing.Point(567, 5);
+            this.btnDelete.Location = new System.Drawing.Point(624, 5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(65, 51);
             this.btnDelete.TabIndex = 83;
@@ -546,27 +545,10 @@
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Yellow;
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnUpdate.FlatAppearance.BorderSize = 2;
-            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Image = global::LibManagement.Properties.Resources.update_40px;
-            this.btnUpdate.Location = new System.Drawing.Point(640, 5);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(65, 51);
-            this.btnUpdate.TabIndex = 82;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Visible = false;
-            // 
             // pctBook
             // 
             this.pctBook.Image = global::LibManagement.Properties.Resources.book_search_25px;
-            this.pctBook.Location = new System.Drawing.Point(529, 30);
+            this.pctBook.Location = new System.Drawing.Point(564, 30);
             this.pctBook.Name = "pctBook";
             this.pctBook.Size = new System.Drawing.Size(27, 26);
             this.pctBook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -576,7 +558,7 @@
             // pctUser
             // 
             this.pctUser.Image = global::LibManagement.Properties.Resources.search_user_25px;
-            this.pctUser.Location = new System.Drawing.Point(290, 30);
+            this.pctUser.Location = new System.Drawing.Point(325, 30);
             this.pctUser.Name = "pctUser";
             this.pctUser.Size = new System.Drawing.Size(24, 26);
             this.pctUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -620,7 +602,6 @@
             this.ClientSize = new System.Drawing.Size(865, 435);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.chkClosed);
             this.Controls.Add(this.chkOpened);
             this.Controls.Add(this.pctBook);
@@ -711,7 +692,6 @@
         private System.Windows.Forms.PictureBox pctBook;
         private System.Windows.Forms.CheckBox chkClosed;
         private System.Windows.Forms.CheckBox chkOpened;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnDone;
     }

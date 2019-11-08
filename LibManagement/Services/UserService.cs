@@ -55,7 +55,10 @@ namespace LibManagement.Services
            
         }
 
-        
+        public int Sum()
+        {
+            return _context.Users.Sum(u=>u.DigitForSum);
+        }
 
     }
 }

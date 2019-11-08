@@ -152,6 +152,7 @@
             this.dgvUsers.Size = new System.Drawing.Size(462, 248);
             this.dgvUsers.TabIndex = 42;
             this.dgvUsers.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvUsers_RowHeaderMouseDoubleClick);
+            this.dgvUsers.Click += new System.EventHandler(this.DgvUsers_Click);
             // 
             // Column1
             // 

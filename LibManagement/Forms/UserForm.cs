@@ -68,6 +68,8 @@ namespace LibManagement.Forms
             btnUpdate.Hide();
             btnAdd.Show();
             btnUnlock.Hide();
+            dgvUsers.Rows.Clear();
+            FillDgv();
         }
 
         #endregion
@@ -171,6 +173,7 @@ namespace LibManagement.Forms
                 Username = txtLogin.Text,
                 Password = MD5Hash(txtPassword.Text),
                 CreaterId = _enteredUser.UserId,
+                DigitForSum = 1
 
             };
             if (chkAdmin.Checked)
@@ -184,6 +187,7 @@ namespace LibManagement.Forms
 
             _userService.Add(user);
             MessageBox.Show(user.FullName + " bazaya daxil edildi!!!");
+
 
             Reset();
 
@@ -294,9 +298,17 @@ namespace LibManagement.Forms
 
         }
 
+
         #endregion
 
-       
+        private void DgvUsers_Click(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtFullName.Text) || !string.IsNullOrEmpty(txtPassword.Text))
+            {
+                Reset();
+            }
+            
+        }
     }
 }
 

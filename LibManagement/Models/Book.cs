@@ -37,6 +37,8 @@ namespace LibManagement.Models
         [Column(TypeName = "bit")]
         public bool isPassiv { get; set; }
 
+        public int DigitForSum { get; set; }
+
         public int JanreId { get; set; }
 
         public Janre janre { get; set; }

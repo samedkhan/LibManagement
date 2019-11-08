@@ -67,6 +67,7 @@
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "  Çıxış";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
             // btnStatistic
             // 
@@ -98,6 +99,7 @@
             this.btnOrders.Size = new System.Drawing.Size(202, 50);
             this.btnOrders.TabIndex = 3;
             this.btnOrders.Text = "   Sifarişlər";
+            this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOrders.UseVisualStyleBackColor = true;
             this.btnOrders.Click += new System.EventHandler(this.BtnOrders_Click);
             // 
@@ -115,6 +117,7 @@
             this.btnBooks.Size = new System.Drawing.Size(202, 50);
             this.btnBooks.TabIndex = 2;
             this.btnBooks.Text = "   Kitablar";
+            this.btnBooks.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBooks.UseVisualStyleBackColor = true;
             this.btnBooks.Click += new System.EventHandler(this.BtnBooks_Click);
             // 
@@ -132,6 +135,7 @@
             this.btnCustomers.Size = new System.Drawing.Size(202, 50);
             this.btnCustomers.TabIndex = 1;
             this.btnCustomers.Text = "    Müştərilər";
+            this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCustomers.UseVisualStyleBackColor = true;
             this.btnCustomers.Click += new System.EventHandler(this.BtnCustomers_Click);
             // 
@@ -149,6 +153,7 @@
             this.btnUsers.Size = new System.Drawing.Size(202, 50);
             this.btnUsers.TabIndex = 0;
             this.btnUsers.Text = "    İstifadəçilər";
+            this.btnUsers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUsers.UseVisualStyleBackColor = true;
             this.btnUsers.Click += new System.EventHandler(this.BtnUsers_Click);
             // 

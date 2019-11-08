@@ -110,7 +110,7 @@ namespace LibManagement.Forms
                 PhoneNumber = txtPhone.Text,
                 CreatedAt = DateTime.Today.Date,
                 IsPassiv = false,
-
+                DigitForSum = 1
             };
             _customerService.Add(customer);
             MessageBox.Show(customer.FullName + " adlı müştəri bazaya daxil edildi!!!");
@@ -252,8 +252,15 @@ namespace LibManagement.Forms
         }
 
 
+
         #endregion
 
-       
+        private void DgvCustomers_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtFullName.Text) || !string.IsNullOrEmpty(txtPhone.Text))
+            {
+                REset();
+            }
+        }
     }
 }

@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbJanres = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,13 +56,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cmbJanresForChanging = new System.Windows.Forms.ComboBox();
             this.txtBookSearch = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnUnlock = new System.Windows.Forms.Button();
@@ -88,6 +88,43 @@
             this.dataGridView1.Size = new System.Drawing.Size(703, 283);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_RowHeaderMouseDoubleClick);
+            this.dataGridView1.Click += new System.EventHandler(this.DataGridView1_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "id";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Kitabın adı";
+            this.Column3.Name = "Column3";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Janr";
+            this.Column2.Name = "Column2";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Status";
+            this.Column7.Name = "Column7";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Ümumi Sayı";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Kitabxanada olan";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Sifarişdə olan";
+            this.Column6.Name = "Column6";
             // 
             // label1
             // 
@@ -288,42 +325,6 @@
             this.txtBookSearch.Size = new System.Drawing.Size(210, 24);
             this.txtBookSearch.TabIndex = 2;
             this.txtBookSearch.TextChanged += new System.EventHandler(this.TxtBookSearch_TextChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "id";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Kitabın adı";
-            this.Column3.Name = "Column3";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Janr";
-            this.Column2.Name = "Column2";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Status";
-            this.Column7.Name = "Column7";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Ümumi Sayı";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Kitabxanada olan";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Sifarişdə olan";
-            this.Column6.Name = "Column6";
             // 
             // btnAdd
             // 

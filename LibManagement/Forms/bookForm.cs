@@ -342,9 +342,19 @@ namespace LibManagement.Forms
             
         }
 
+
+
         #endregion
 
-
-       
+        private void DataGridView1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtAuthor.Text) || !string.IsNullOrEmpty(txtName.Text))
+            {              
+            
+                Reset();
+                
+            }
+           
+        }
     }
 }

@@ -24,16 +24,18 @@ namespace LibManagement.Services
             return _context.Orders.Include("user").Include("customer").Include("book").ToList();
         }
 
-        public void Add(Order order)
+        public int Add(Order order)
         {
             _context.Orders.Add(order);
             _context.SaveChanges();
+            return order.BookId;
         }
 
-        public void Delete(Order order)
+        public int Delete(Order order)
         {
             _context.Orders.Remove(order);
             _context.SaveChanges();
+            return order.BookId;
         }
 
         public void Update(Order order)
@@ -60,6 +62,11 @@ namespace LibManagement.Services
         public bool CheckOrderStatus()
         {
             return _context.Orders.Any(o => o.Status != true);
+        }
+
+        public int Sum()
+        {
+            return _context.Orders.Sum(o => o.DigitForSum);
         }
     }
 }

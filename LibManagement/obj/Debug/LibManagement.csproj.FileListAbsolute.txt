@@ -36,3 +36,12 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.StatisticForm.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.AddedAllModelsPropertyDigitForSum.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csprojAssemblyReference.cache
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\ClosedXML.dll
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\ExcelNumberFormat.dll
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\FastMember.dll
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\System.IO.Packaging.dll
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\ClosedXML.pdb
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\ClosedXML.xml
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\ExcelNumberFormat.xml

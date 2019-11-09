@@ -224,12 +224,12 @@
             this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpStart.Location = new System.Drawing.Point(9, 391);
-            this.dtpStart.MaxDate = new System.DateTime(2019, 11, 9, 0, 0, 0, 0);
+            this.dtpStart.MaxDate = new System.DateTime(2019, 11, 9, 19, 46, 8, 0);
             this.dtpStart.MinDate = new System.DateTime(2019, 11, 1, 0, 0, 0, 0);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(113, 26);
             this.dtpStart.TabIndex = 99;
-            this.dtpStart.Value = new System.DateTime(2019, 11, 9, 0, 0, 0, 0);
+            this.dtpStart.Value = new System.DateTime(2019, 11, 1, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -287,12 +287,13 @@
             this.btnExcell.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcell.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnExcell.Image = global::LibManagement.Properties.Resources.xls_40pxı;
-            this.btnExcell.Location = new System.Drawing.Point(785, 6);
+            this.btnExcell.Location = new System.Drawing.Point(351, 372);
             this.btnExcell.Name = "btnExcell";
-            this.btnExcell.Size = new System.Drawing.Size(65, 51);
+            this.btnExcell.Size = new System.Drawing.Size(74, 45);
             this.btnExcell.TabIndex = 94;
             this.btnExcell.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcell.UseVisualStyleBackColor = false;
+            this.btnExcell.Visible = false;
             this.btnExcell.Click += new System.EventHandler(this.BtnExcell_Click);
             // 
             // pctUser
@@ -360,7 +361,7 @@
             // 
             // SfdSaveAs
             // 
-            this.SfdSaveAs.DefaultExt = "xls";
+            this.SfdSaveAs.Filter = "Excell files (*.xlsx)|*.xlsx";
             // 
             // StatisticForm
             // 

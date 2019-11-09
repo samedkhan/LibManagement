@@ -23,7 +23,6 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.CustomerForm.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.RemovedBookOrdersChangedBookAndORderProperties.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.UserForm.resources
-C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.OrderForm.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedOrderClassProperty.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookProperties.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.ChangedBookPropertyADdedInLibrary.resources
@@ -35,7 +34,6 @@ C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.NewOrderForm.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Forms.StatisticForm.resources
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.Migrations.AddedAllModelsPropertyDigitForSum.resources
-C:\Users\SAMED\source\repos\LibManagement\LibManagement\obj\Debug\LibManagement.csprojAssemblyReference.cache
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\ClosedXML.dll
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\DocumentFormat.OpenXml.dll
 C:\Users\SAMED\source\repos\LibManagement\LibManagement\bin\Debug\ExcelNumberFormat.dll

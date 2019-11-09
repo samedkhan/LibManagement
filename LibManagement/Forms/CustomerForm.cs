@@ -194,18 +194,6 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region Go-Back-Dashboard
-        private void BtnBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            dashboard dashboard = new dashboard(_enteredUser);
-            dashboard.Show();
-            
-        }
-
-
-        #endregion
-
         #region Show only ACTIVE customers
         private void ChkActive_CheckedChanged(object sender, EventArgs e)
         {
@@ -255,6 +243,7 @@ namespace LibManagement.Forms
 
         #endregion
 
+        #region Resetting All SElected items
         private void DgvCustomers_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtFullName.Text) || !string.IsNullOrEmpty(txtPhone.Text))
@@ -262,5 +251,18 @@ namespace LibManagement.Forms
                 REset();
             }
         }
+        #endregion
+
+        #region Go-Back-Dashboard
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+
+        }
+
+
+        #endregion
     }
 }

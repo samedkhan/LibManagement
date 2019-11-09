@@ -16,7 +16,7 @@ namespace LibManagement.Forms
             _userService = new UserService();
         }
 
-        #region Password Creating
+        #region Converting Writed Password to HASH CODE
 
         public string MD5Hash(string password)
         {
@@ -28,6 +28,7 @@ namespace LibManagement.Forms
 
         #endregion
 
+        #region Checking settings for ENTER button
         private void BtnEnter_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text)) // Checking EMPTIES
@@ -51,6 +52,7 @@ namespace LibManagement.Forms
             this.Hide();
 
         }
+        #endregion
 
 
     }

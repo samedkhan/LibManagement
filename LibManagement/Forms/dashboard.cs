@@ -24,6 +24,8 @@ namespace LibManagement.Forms
             CheckUSer();
         }
 
+        #region Apply settings after checking Entered User
+        //IF entered user isn't admin then STATISTIC and USERS buttons will not be active
         public void CheckUSer()
         {
             if (!this._enteredUser.IsAdmin)
@@ -38,40 +40,9 @@ namespace LibManagement.Forms
             btnOrders.Text += "  - " + _orderService.Sum();
             btnUsers.Text += "  - " + _userService.Sum();
         }
-       
-        private void Button5_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Əminsinizmi?", "", MessageBoxButtons.YesNo);
-            if(result == DialogResult.Yes)
-            {
 
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
-                foreach (Form form in Application.OpenForms)
-                {
-                    if(form.GetType() != loginForm.GetType())
-                    {
-                        form.Hide();
-                    }
-                }
-                loginForm.Show();
-                
-            }
-        }
-
-        
-
-       
-
-        
-
-        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        
-
+        #endregion
+      
         private void BtnUsers_Click(object sender, EventArgs e) //Go To User Form
         {
             this.Hide();
@@ -89,7 +60,7 @@ namespace LibManagement.Forms
             bookForm.ShowDialog();
         }
 
-        private void BtnCustomers_Click(object sender, EventArgs e)
+        private void BtnCustomers_Click(object sender, EventArgs e) // Go To Customer Form
         {
             this.Hide();
             CustomerForm customerForm = new CustomerForm(_enteredUser);
@@ -97,28 +68,38 @@ namespace LibManagement.Forms
             customerForm.ShowDialog();
         }
 
-        private void BtnOrders_Click(object sender, EventArgs e)
+        private void BtnOrders_Click(object sender, EventArgs e) // Go To Orders Form
         {
             this.Hide();
             OrdersForm orderForm = new OrdersForm(this._enteredUser);
             orderForm.Text = orderForm.Text + " --- " + this._enteredUser.FullName;
             orderForm.Show();
             
-        }
+        } 
 
-        private void BtnLogout_Click(object sender, EventArgs e)
+        private void BtnLogout_Click(object sender, EventArgs e) // LOG OUT
         {
-            this.Hide();
+        DialogResult result = MessageBox.Show("Əminsinizmi?", "", MessageBoxButtons.YesNo);
+        if (result == DialogResult.Yes)
+            {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             loginForm.FormClosed += (s, args) => this.Close();
+            this.Hide();
+            }
         }
 
-        private void BtnStatistic_Click(object sender, EventArgs e)
+        private void BtnStatistic_Click(object sender, EventArgs e) // Go To Statistic Form
         {
             this.Hide();
             StatisticForm statisticForm = new StatisticForm(_enteredUser);
             statisticForm.ShowDialog();
         }
+        
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

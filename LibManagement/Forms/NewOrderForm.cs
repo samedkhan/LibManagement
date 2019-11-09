@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibManagement.Services;
 using LibManagement.Models;
@@ -33,17 +26,6 @@ namespace LibManagement.Forms
             FillCmbBook();
 
         }
-
-        #region Reset
-
-        public void Reset()
-        {
-            cmbBook.SelectedIndex = -1;
-            cmbCustomers.SelectedIndex = -1;
-            dtpDeadline.Value = DateTime.Today;
-        }
-
-        #endregion
 
         #region Fill Combobox's
 
@@ -144,6 +126,17 @@ namespace LibManagement.Forms
 
            
         }
+        #endregion
+
+        #region Reset
+
+        public void Reset()
+        {
+            cmbBook.SelectedIndex = -1;
+            cmbCustomers.SelectedIndex = -1;
+            dtpDeadline.Value = DateTime.Today;
+        }
+
         #endregion
     }
 }

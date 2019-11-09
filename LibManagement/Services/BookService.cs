@@ -46,12 +46,7 @@ namespace LibManagement.Services
             return Books;
         }
 
-        public List<Book> AllBookById(int id)
-        {
-            List<Book> Books;
-            Books = _context.Books.Where(b=>b.JanreId==id).ToList();
-            return Books;
-        }
+       
 
         public bool Contain(string name)
         {

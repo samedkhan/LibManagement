@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibManagement.Services;
 using LibManagement.Models;
-using LibManagement.Helpers;
 
 namespace LibManagement.Forms
 {
@@ -39,8 +31,6 @@ namespace LibManagement.Forms
             FillClosedOrders();
 
         }
-
-        
 
         #region Fill
 
@@ -158,7 +148,7 @@ namespace LibManagement.Forms
         }
         #endregion
 
-
+        #region Settings for selecting TabPages in Tab-Control
         private void TcOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(tcOrders.SelectedTab == tabFull)
@@ -190,6 +180,7 @@ namespace LibManagement.Forms
             }
         }
 
+        #endregion
 
         #region Show Order by STATUS
 
@@ -256,35 +247,7 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region Go-Back-Dashboard
-        private void BtnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            dashboard dashboard = new dashboard(_enteredUser);
-            dashboard.Show();
-
-        }
-
-        #endregion
-
-        #region Reset
-
-        public void Reset()
-        {
-            btnAdd.Show();
-            btnDone.Hide();
-            btnDelete.Hide();
-
-        }
-
-        private void DgvAllOrders_Click(object sender, EventArgs e)
-        {
-            Reset();
-        }
-
-        #endregion
-
-        #region SEARCH
+        #region SEARCH by Customer Name and Book Name
         private void TxtNameSearch_TextChanged(object sender, EventArgs e)
         {
             dgvAllOrders.Rows.Clear();
@@ -348,7 +311,74 @@ namespace LibManagement.Forms
 
         #endregion
 
+        #region Order ADD
+        private void RefreshData(object sender, EventArgs e)
+        {
+            dgvAllOrders.Rows.Clear();
+            dgvTodayRefunds.Rows.Clear();
+            dgvTomorrowRefunds.Rows.Clear();
+            FillAllOrder();
+            FillTodayRefunds();
+            FillTomorrowRefunds();
+        }
 
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            NewOrderForm newOrderForm = new NewOrderForm(_enteredUser);
+            newOrderForm.DataAdded += new EventHandler(RefreshData);
+            newOrderForm.ShowDialog();
+
+        }
+        #endregion
+
+        #region Order DELETE
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Silinsin?", _selectedOrder.customer.FullName + " - " + _selectedOrder.book.Name, MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                int id = _orderService.Delete(_selectedOrder);
+                _bookService.Find(id).InLibrary++;
+                _bookService.Find(id).InOrder--;
+                _bookService.Update(_bookService.Find(id));
+                MessageBox.Show("Sifariş silindi");
+                dgvAllOrders.Rows.RemoveAt(_selectedIndex);
+                Reset();
+            }
+        }
+
+        #endregion
+
+        #region Order DONE
+        private void BtnDone_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Sifariş tamamlansın", _selectedOrder.customer.FullName + " - " + _selectedOrder.book.Name, MessageBoxButtons.YesNo);
+            if (r == DialogResult.Yes)
+            {
+                _selectedOrder.Status = false;
+                _orderService.Update(_selectedOrder);
+                _bookService.Find(_selectedOrder.BookId).InLibrary++;
+                _bookService.Find(_selectedOrder.BookId).InOrder--;
+                _bookService.Update(_bookService.Find(_selectedOrder.BookId));
+                MessageBox.Show(_selectedOrder.customer.FullName + " " +
+                                    _selectedOrder.book.Name + " - " +
+                                    " TAMAMLANDI");
+                dgvAllOrders.Rows[_selectedIndex].Cells[7].Value = "TAMAMLANIB";
+                Reset();
+                FillClosedOrders();
+            }
+
+        }
+
+
+
+
+
+
+
+        #endregion
 
         #region SELECT ROW in DgvAllOrdes
         private void DgvAllOrders_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -423,79 +453,39 @@ namespace LibManagement.Forms
 
         #endregion
 
+        #region Reset
 
-
-        #region Order Delete
-
-        private void BtnDelete_Click(object sender, EventArgs e)
+        public void Reset()
         {
-            DialogResult r = MessageBox.Show("Silinsin?", _selectedOrder.customer.FullName + " - " + _selectedOrder.book.Name, MessageBoxButtons.YesNo);
+            btnAdd.Show();
+            btnDone.Hide();
+            btnDelete.Hide();
 
-            if (r == DialogResult.Yes)
-            {
-                int id = _orderService.Delete(_selectedOrder);
-                _bookService.Find(id).InLibrary++;
-                _bookService.Find(id).InOrder--;
-                _bookService.Update(_bookService.Find(id));
-                MessageBox.Show("Sifariş silindi");
-                dgvAllOrders.Rows.RemoveAt(_selectedIndex);
-                Reset();
-            }
+        }
+
+        private void DgvAllOrders_Click(object sender, EventArgs e)
+        {
+            Reset();
         }
 
         #endregion
 
-        #region Order Done
-        private void BtnDone_Click(object sender, EventArgs e)
+        #region Go-Back-Dashboard
+        private void BtnBack_Click(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Sifariş tamamlansın", _selectedOrder.customer.FullName + " - " + _selectedOrder.book.Name, MessageBoxButtons.YesNo);
-            if(r == DialogResult.Yes)
-            {
-                _selectedOrder.Status = false;
-                _orderService.Update(_selectedOrder);
-                _bookService.Find(_selectedOrder.BookId).InLibrary++;
-                _bookService.Find(_selectedOrder.BookId).InOrder--;
-                _bookService.Update(_bookService.Find(_selectedOrder.BookId));
-                MessageBox.Show(_selectedOrder.customer.FullName + " " +
-                                    _selectedOrder.book.Name + " - " +
-                                    " TAMAMLANDI");
-                dgvAllOrders.Rows[_selectedIndex].Cells[7].Value = "TAMAMLANIB";
-                Reset();
-                FillClosedOrders();
-            }
-           
+            this.Close();
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+
         }
-
-
-
-
-
-
 
         #endregion
 
-        #region Order ADD
-        private void RefreshData(object sender,EventArgs e)
-        {
-            dgvAllOrders.Rows.Clear();
-            dgvTodayRefunds.Rows.Clear();
-            dgvTomorrowRefunds.Rows.Clear();
-            FillAllOrder();
-            FillTodayRefunds();
-            FillTomorrowRefunds();
-        }
 
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            NewOrderForm newOrderForm = new NewOrderForm(_enteredUser);
-            newOrderForm.DataAdded += new EventHandler(RefreshData);
-            newOrderForm.ShowDialog();
 
-        }
-        #endregion
 
-     
 
-      
+
+
     }
 }

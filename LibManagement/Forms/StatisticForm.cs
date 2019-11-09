@@ -10,7 +10,6 @@ namespace LibManagement.Forms
 {
     public partial class StatisticForm : Form
     {
-
         private OrderService _orderService;
         private UserService _userService;
         private string _status;
@@ -21,13 +20,10 @@ namespace LibManagement.Forms
             _orderService = new OrderService();
             _userService = new UserService();
 
-         
             InitializeComponent();
             CalculatePayments();
             CalculateFinePayments();
             FillUserCombobox();
-            
-            //FillDgv();
         }
 
         #region Fill
@@ -72,16 +68,6 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region Go-Back-Dashboard
-        private void BtnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            dashboard dashboard = new dashboard(_enteredUser);
-            dashboard.Show();
-        }
-
-        #endregion
-
         #region SEARCH by Customer Name
         private void txtCustomer_TextChanged(object sender, EventArgs e)
         {
@@ -117,7 +103,7 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region SEARCH by user name
+        #region SEARCH by User Name
 
         private void CmbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -160,7 +146,7 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region Show Orders by STATUS
+        #region SHOW Orders by STATUS
 
         private void ChkClosed_CheckedChanged(object sender, EventArgs e) // SHOW by CLOSED STATUS
         {
@@ -291,7 +277,7 @@ namespace LibManagement.Forms
         }
         #endregion
 
-        #region Calculate
+        #region Calculate TOTAL and CASH payments
 
         // Calculate TOTAL and CASH PAYMENTs when opened this FORM
         public void CalculatePayments()
@@ -389,6 +375,16 @@ namespace LibManagement.Forms
         }
 
         #endregion;
-       
+
+        #region Go-Back-Dashboard
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            dashboard dashboard = new dashboard(_enteredUser);
+            dashboard.Show();
+        }
+
+        #endregion
+
     }
 }

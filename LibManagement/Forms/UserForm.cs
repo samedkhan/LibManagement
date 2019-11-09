@@ -7,7 +7,6 @@ using System.Security.Cryptography;
 
 namespace LibManagement.Forms
 {
-
     public partial class UserForm : Form
     {
         private readonly UserService _userService;
@@ -50,101 +49,6 @@ namespace LibManagement.Forms
                 }
 
                 dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, Admin, Status);
-            }
-        }
-
-        #endregion
-
-        #region Reset
-
-        public void Reset()
-        {
-            txtFullName.Clear();
-            txtLogin.Clear();
-            txtPassword.Clear();
-            chkAdmin.Checked = false;
-            chkUser.Checked = false;
-            btnPassiv.Hide();
-            btnUpdate.Hide();
-            btnAdd.Show();
-            btnUnlock.Hide();
-            dgvUsers.Rows.Clear();
-            FillDgv();
-        }
-
-        #endregion
-
-        #region Password Creating
-
-        public string MD5Hash(string password)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] bytes = md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(password));
-            string result = BitConverter.ToString(bytes).Replace("-", string.Empty);
-            return result;
-        }
-
-        #endregion
-
-        #region Selectable-Search 
-        private void ChkUser_CheckedChanged(object sender, EventArgs e) // Show only USER Managers
-        {
-            if (chkUser.Checked)
-            {
-                chkAdmin.Checked = false;
-                dgvUsers.Rows.Clear();
-                foreach (var item in _userService.GetAllUsers())
-                {
-                    if (item.IsPassiv == true)
-                    {
-                        Status = "PASSİV";
-
-                    }
-                    else
-                    {
-                        Status = "AKTİV";
-                    }
-
-                    if (item.IsAdmin != true)
-                    {
-                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Menecer", Status);
-                    }
-                }
-            }
-            else
-            {
-                dgvUsers.Rows.Clear();
-                FillDgv();
-            }
-        }
-
-        private void ChkAdmin_CheckedChanged(object sender, EventArgs e) //Show only ADMIN Managers
-        {
-            if (chkAdmin.Checked)
-            {
-                chkUser.Checked = false;
-                dgvUsers.Rows.Clear();
-                foreach (var item in _userService.GetAllUsers())
-                {
-                    if (item.IsPassiv == true)
-                    {
-                        Status = "PASSİV";
-
-                    }
-                    else
-                    {
-                        Status = "AKTİV";
-                    }
-                    if (item.IsAdmin == true)
-                    {
-                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Administrator", Status);
-                    }
-                }
-            }
-            else
-            {
-                dgvUsers.Rows.Clear();
-                FillDgv();
             }
         }
 
@@ -248,6 +152,23 @@ namespace LibManagement.Forms
 
         #endregion
 
+        #region Unlock User
+        private void BtnUnlock_Click(object sender, EventArgs e) //Unlock user
+        {
+            DialogResult r = MessageBox.Show("Aktivləşdirilsin?", _selectedUser.FullName, MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+                _selectedUser.IsPassiv = false;
+                _userService.Update(_selectedUser);
+                MessageBox.Show(_selectedUser.FullName + " aktivləşdirildi!!!");
+                dgvUsers.Rows[_selectedIndex].Cells[5].Value = "AKTIV";
+                Reset();
+            }
+        }
+
+        #endregion
+
         #region Select-User-In-DatagridView
 
         private void DgvUsers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -271,19 +192,85 @@ namespace LibManagement.Forms
 
         #endregion
 
-        #region Unlock User
-        private void BtnUnlock_Click(object sender, EventArgs e) //Unlock user
+        #region SEARCH USERs by positions (admin, manager)
+        private void ChkUser_CheckedChanged(object sender, EventArgs e) // Show only USER Managers
         {
-            DialogResult r = MessageBox.Show("Aktivləşdirilsin?", _selectedUser.FullName, MessageBoxButtons.YesNo);
-
-            if (r == DialogResult.Yes)
+            if (chkUser.Checked)
             {
-                _selectedUser.IsPassiv = false;
-                _userService.Update(_selectedUser);
-                MessageBox.Show(_selectedUser.FullName + " aktivləşdirildi!!!");
-                dgvUsers.Rows[_selectedIndex].Cells[5].Value = "AKTIV";
-                Reset();
+                chkAdmin.Checked = false;
+                dgvUsers.Rows.Clear();
+                foreach (var item in _userService.GetAllUsers())
+                {
+                    if (item.IsPassiv == true)
+                    {
+                        Status = "PASSİV";
+
+                    }
+                    else
+                    {
+                        Status = "AKTİV";
+                    }
+
+                    if (item.IsAdmin != true)
+                    {
+                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Menecer", Status);
+                    }
+                }
             }
+            else
+            {
+                dgvUsers.Rows.Clear();
+                FillDgv();
+            }
+        }
+
+        private void ChkAdmin_CheckedChanged(object sender, EventArgs e) //Show only ADMIN Managers
+        {
+            if (chkAdmin.Checked)
+            {
+                chkUser.Checked = false;
+                dgvUsers.Rows.Clear();
+                foreach (var item in _userService.GetAllUsers())
+                {
+                    if (item.IsPassiv == true)
+                    {
+                        Status = "PASSİV";
+
+                    }
+                    else
+                    {
+                        Status = "AKTİV";
+                    }
+                    if (item.IsAdmin == true)
+                    {
+                        dgvUsers.Rows.Add(item.UserId, item.FullName, item.Username, item.Password, "Administrator", Status);
+                    }
+                }
+            }
+            else
+            {
+                dgvUsers.Rows.Clear();
+                FillDgv();
+            }
+        }
+
+        #endregion
+
+        #region Reset
+
+        public void Reset()
+        {
+            txtFullName.Clear();
+            txtLogin.Clear();
+            txtPassword.Clear();
+            chkAdmin.Checked = false;
+            chkUser.Checked = false;
+            btnPassiv.Hide();
+            btnUpdate.Hide();
+            btnAdd.Show();
+            btnUnlock.Hide();
+            dgvUsers.Rows.Clear();
+            FillDgv();
         }
 
         #endregion
@@ -294,21 +281,36 @@ namespace LibManagement.Forms
             this.Hide();
             dashboard dashboard = new dashboard(_enteredUser);
             dashboard.Show();
-            
+
 
         }
 
 
         #endregion
 
+        #region Create HASH CODE for setted Password
+
+        public string MD5Hash(string password)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] bytes = md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(password));
+            string result = BitConverter.ToString(bytes).Replace("-", string.Empty);
+            return result;
+        }
+
+        #endregion
+
+        #region Resetting All Selected items
         private void DgvUsers_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtFullName.Text) || !string.IsNullOrEmpty(txtPassword.Text))
+            if (!string.IsNullOrEmpty(txtFullName.Text) || !string.IsNullOrEmpty(txtPassword.Text))
             {
                 Reset();
             }
-            
+
         }
+        #endregion
+
     }
 }
 

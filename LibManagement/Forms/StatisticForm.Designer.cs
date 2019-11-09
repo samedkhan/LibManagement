@@ -58,6 +58,7 @@
             this.lblKassa = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.SfdSaveAs = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctUser)).BeginInit();
@@ -292,6 +293,7 @@
             this.btnExcell.TabIndex = 94;
             this.btnExcell.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcell.UseVisualStyleBackColor = false;
+            this.btnExcell.Click += new System.EventHandler(this.BtnExcell_Click);
             // 
             // pctUser
             // 
@@ -355,6 +357,10 @@
             this.lblTotal.Size = new System.Drawing.Size(70, 16);
             this.lblTotal.TabIndex = 103;
             this.lblTotal.Text = "0.00 AZN";
+            // 
+            // SfdSaveAs
+            // 
+            this.SfdSaveAs.DefaultExt = "xls";
             // 
             // StatisticForm
             // 
@@ -425,5 +431,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.SaveFileDialog SfdSaveAs;
     }
 }

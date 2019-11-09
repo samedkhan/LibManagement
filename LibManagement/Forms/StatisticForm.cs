@@ -327,8 +327,13 @@ namespace LibManagement.Forms
             }
         }
 
+
         #endregion
 
-        
+        private void BtnExcell_Click(object sender, EventArgs e)
+        {
+            SfdSaveAs.ShowDialog();
+            SfdSaveAs.FileName = "report"; 
+        }
     }
 }

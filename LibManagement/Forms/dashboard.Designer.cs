@@ -50,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(211, 346);
+            this.panel1.Size = new System.Drawing.Size(211, 341);
             this.panel1.TabIndex = 4;
             // 
             // btnLogout
@@ -61,7 +61,7 @@
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLogout.Image = global::LibManagement.Properties.Resources.logout_25px;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(4, 289);
+            this.btnLogout.Location = new System.Drawing.Point(4, 286);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(202, 50);
             this.btnLogout.TabIndex = 5;
@@ -78,12 +78,13 @@
             this.btnStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnStatistic.Image = global::LibManagement.Properties.Resources.statistic_25px;
             this.btnStatistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistic.Location = new System.Drawing.Point(4, 233);
+            this.btnStatistic.Location = new System.Drawing.Point(4, 6);
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.Size = new System.Drawing.Size(202, 50);
             this.btnStatistic.TabIndex = 4;
             this.btnStatistic.Text = "   Statistika";
             this.btnStatistic.UseVisualStyleBackColor = true;
+            this.btnStatistic.Click += new System.EventHandler(this.BtnStatistic_Click);
             // 
             // btnOrders
             // 
@@ -94,7 +95,7 @@
             this.btnOrders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnOrders.Image = global::LibManagement.Properties.Resources.order_25px;
             this.btnOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrders.Location = new System.Drawing.Point(4, 177);
+            this.btnOrders.Location = new System.Drawing.Point(4, 230);
             this.btnOrders.Name = "btnOrders";
             this.btnOrders.Size = new System.Drawing.Size(202, 50);
             this.btnOrders.TabIndex = 3;
@@ -112,7 +113,7 @@
             this.btnBooks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnBooks.Image = global::LibManagement.Properties.Resources.book_25px2;
             this.btnBooks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBooks.Location = new System.Drawing.Point(4, 121);
+            this.btnBooks.Location = new System.Drawing.Point(4, 174);
             this.btnBooks.Name = "btnBooks";
             this.btnBooks.Size = new System.Drawing.Size(202, 50);
             this.btnBooks.TabIndex = 2;
@@ -130,7 +131,7 @@
             this.btnCustomers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCustomers.Image = global::LibManagement.Properties.Resources.customers_25px;
             this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomers.Location = new System.Drawing.Point(4, 65);
+            this.btnCustomers.Location = new System.Drawing.Point(4, 118);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(202, 50);
             this.btnCustomers.TabIndex = 1;
@@ -148,7 +149,7 @@
             this.btnUsers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUsers.Image = global::LibManagement.Properties.Resources.user_25px2;
             this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(4, 9);
+            this.btnUsers.Location = new System.Drawing.Point(4, 62);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(202, 50);
             this.btnUsers.TabIndex = 0;
@@ -161,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(211, 346);
+            this.ClientSize = new System.Drawing.Size(211, 341);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

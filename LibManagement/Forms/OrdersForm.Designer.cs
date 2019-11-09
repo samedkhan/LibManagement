@@ -491,9 +491,9 @@
             this.chkClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkClosed.Location = new System.Drawing.Point(748, 413);
             this.chkClosed.Name = "chkClosed";
-            this.chkClosed.Size = new System.Drawing.Size(106, 19);
+            this.chkClosed.Size = new System.Drawing.Size(96, 19);
             this.chkClosed.TabIndex = 79;
-            this.chkClosed.Text = "Tamamlanmış";
+            this.chkClosed.Text = "Tamamlanıb";
             this.chkClosed.UseVisualStyleBackColor = true;
             this.chkClosed.CheckedChanged += new System.EventHandler(this.ChkClosed_CheckedChanged);
             // 
@@ -615,7 +615,7 @@
             this.Controls.Add(this.btnBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OrdersForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewOrder";
             this.tcOrders.ResumeLayout(false);
             this.tabFull.ResumeLayout(false);

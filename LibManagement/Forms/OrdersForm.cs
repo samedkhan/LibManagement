@@ -191,7 +191,7 @@ namespace LibManagement.Forms
         }
 
 
-        #region Show Order which closed or open
+        #region Show Order by STATUS
 
         private void ChkClosed_CheckedChanged(object sender, EventArgs e) // SHOW by CLOSED STATUS
         {
@@ -259,7 +259,7 @@ namespace LibManagement.Forms
         #region Go-Back-Dashboard
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             dashboard dashboard = new dashboard(_enteredUser);
             dashboard.Show();
 
@@ -448,17 +448,22 @@ namespace LibManagement.Forms
         #region Order Done
         private void BtnDone_Click(object sender, EventArgs e)
         {
-            _selectedOrder.Status = false;
-            _orderService.Update(_selectedOrder);
-            _bookService.Find(_selectedOrder.BookId).InLibrary++;
-            _bookService.Find(_selectedOrder.BookId).InOrder--;
-            _bookService.Update(_bookService.Find(_selectedOrder.BookId));
-            MessageBox.Show(_selectedOrder.customer.FullName + " " +
-                                _selectedOrder.book.Name + " " +
-                                " TAMAMLANDI");
-            dgvAllOrders.Rows[_selectedIndex].Cells[7].Value = "TAMAMLANMIŞ";
-            Reset();
-            FillClosedOrders();
+            DialogResult r = MessageBox.Show("Sifariş tamamlansın", _selectedOrder.customer.FullName + " - " + _selectedOrder.book.Name, MessageBoxButtons.YesNo);
+            if(r == DialogResult.Yes)
+            {
+                _selectedOrder.Status = false;
+                _orderService.Update(_selectedOrder);
+                _bookService.Find(_selectedOrder.BookId).InLibrary++;
+                _bookService.Find(_selectedOrder.BookId).InOrder--;
+                _bookService.Update(_bookService.Find(_selectedOrder.BookId));
+                MessageBox.Show(_selectedOrder.customer.FullName + " " +
+                                    _selectedOrder.book.Name + " - " +
+                                    " TAMAMLANDI");
+                dgvAllOrders.Rows[_selectedIndex].Cells[7].Value = "TAMAMLANIB";
+                Reset();
+                FillClosedOrders();
+            }
+           
         }
 
 

@@ -41,16 +41,16 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(101, 131);
+            this.label4.Location = new System.Drawing.Point(77, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 16);
+            this.label4.Size = new System.Drawing.Size(120, 16);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Son Tarix";
+            this.label4.Text = "Geri qaytaracaq";
             // 
             // dtpDeadline
             // 
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDeadline.Location = new System.Drawing.Point(9, 152);
+            this.dtpDeadline.Location = new System.Drawing.Point(8, 152);
             this.dtpDeadline.MinDate = new System.DateTime(2019, 11, 8, 0, 0, 0, 0);
             this.dtpDeadline.Name = "dtpDeadline";
             this.dtpDeadline.Size = new System.Drawing.Size(259, 26);
@@ -60,7 +60,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(117, 75);
+            this.label3.Location = new System.Drawing.Point(116, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 16);
             this.label3.TabIndex = 12;
@@ -71,7 +71,7 @@
             this.cmbBook.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBook.FormattingEnabled = true;
-            this.cmbBook.Location = new System.Drawing.Point(9, 96);
+            this.cmbBook.Location = new System.Drawing.Point(8, 96);
             this.cmbBook.Name = "cmbBook";
             this.cmbBook.Size = new System.Drawing.Size(259, 28);
             this.cmbBook.TabIndex = 9;
@@ -80,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(109, 19);
+            this.label2.Location = new System.Drawing.Point(108, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 11;
@@ -91,7 +91,7 @@
             this.cmbCustomers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCustomers.FormattingEnabled = true;
-            this.cmbCustomers.Location = new System.Drawing.Point(9, 40);
+            this.cmbCustomers.Location = new System.Drawing.Point(8, 40);
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(259, 28);
             this.cmbCustomers.TabIndex = 8;

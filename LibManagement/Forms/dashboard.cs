@@ -102,7 +102,8 @@ namespace LibManagement.Forms
             this.Hide();
             OrdersForm orderForm = new OrdersForm(this._enteredUser);
             orderForm.Text = orderForm.Text + " --- " + this._enteredUser.FullName;
-            orderForm.ShowDialog();
+            orderForm.Show();
+            
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
@@ -111,6 +112,13 @@ namespace LibManagement.Forms
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             loginForm.FormClosed += (s, args) => this.Close();
+        }
+
+        private void BtnStatistic_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StatisticForm statisticForm = new StatisticForm(_enteredUser);
+            statisticForm.ShowDialog();
         }
     }
 }

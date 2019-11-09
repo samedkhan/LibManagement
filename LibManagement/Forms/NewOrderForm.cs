@@ -103,7 +103,6 @@ namespace LibManagement.Forms
                             UserId = _enteredUser.UserId,
                             DigitForSum = 1
                         };
-                   
                         id = _orderService.Add(orderAgain);
                         _bookService.Find(id).InLibrary--;
                         _bookService.Find(id).InOrder++;

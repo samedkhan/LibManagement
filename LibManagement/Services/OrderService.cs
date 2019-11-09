@@ -54,9 +54,19 @@ namespace LibManagement.Services
             return _context.Orders.Sum(o => o.TotalPrice);
         }
 
+        public decimal CalculateTotalPayByDate(DateTime date1, DateTime date2)
+        {
+            return _context.Orders.Where(o=>o.CreatedAt >= date1 && o.CreatedAt<=date2).Sum(o => o.TotalPrice);
+        }
+
         public decimal CalculateCashPayment()
         {
             return _context.Orders.Where(o => o.Status != true).Sum(o => o.TotalPrice);
+        }
+
+        public decimal CalculateCashPaymentByDate(DateTime date1, DateTime date2)
+        {
+            return _context.Orders.Where(o => o.Status != true && (o.CreatedAt >= date1 && o.CreatedAt <= date2)).Sum(o => o.TotalPrice);
         }
 
         public bool CheckOrderStatus()

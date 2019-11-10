@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibManagement.DAL;
 using LibManagement.Models;
 
 namespace LibManagement.Services
 {
-   
+
     class BookService
     {
         private readonly LibManagementContext _context;
@@ -58,10 +55,6 @@ namespace LibManagement.Services
             return _context.Books.Where(b => b.BookId == id).FirstOrDefault();
         }
 
-        public Book FindByName(string name)
-        {
-            return _context.Books.Where(b => b.Name.Contains(name)).FirstOrDefault();
-        }
 
         public int Sum()
         {

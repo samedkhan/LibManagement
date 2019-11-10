@@ -8,8 +8,6 @@ namespace LibManagement.Forms
     public partial class OrdersForm : Form
     {
         private readonly BookService _bookService;
-        private readonly CustomerService _customerService;
-        private readonly UserService _userService;
         private readonly OrderService _orderService;
         private string Status;
         private User _enteredUser;
@@ -19,8 +17,6 @@ namespace LibManagement.Forms
         {
             InitializeComponent();
             _bookService = new BookService();
-            _customerService = new CustomerService();
-            _userService = new UserService();
             _orderService = new OrderService();
             this._enteredUser = user;
            
@@ -354,7 +350,7 @@ namespace LibManagement.Forms
         #region Order DONE
         private void BtnDone_Click(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Sifariş tamamlansın", _selectedOrder.customer.FullName + " - " + _selectedOrder.book.Name, MessageBoxButtons.YesNo);
+            DialogResult r = MessageBox.Show("Sifariş tamamlansın?", _selectedOrder.customer.FullName + " - " + _selectedOrder.book.Name, MessageBoxButtons.YesNo);
             if (r == DialogResult.Yes)
             {
                 _selectedOrder.Status = false;

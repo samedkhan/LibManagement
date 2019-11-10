@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibManagement.DAL;
 using LibManagement.Models;
 
 namespace LibManagement.Services
 {
-    
+
     class JanreService
     {
         private readonly LibManagementContext _context;

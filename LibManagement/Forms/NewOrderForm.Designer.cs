@@ -50,6 +50,7 @@
             // dtpDeadline
             // 
             this.dtpDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDeadline.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDeadline.Location = new System.Drawing.Point(8, 152);
             this.dtpDeadline.MinDate = new System.DateTime(2019, 11, 8, 0, 0, 0, 0);
             this.dtpDeadline.Name = "dtpDeadline";
